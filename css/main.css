@@ -1,0 +1,13 @@
+/* To be overriden. Only for testing purposes */
+h1
+{
+    color: #85C040;
+    font-size: 200px;
+    text-align: center;
+    margin: 0;
+}
+
+.highlighted
+{
+    text-shadow: 5px 5px 10px black;
+}
