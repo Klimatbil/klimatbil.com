@@ -1,13 +1,53 @@
-/* To be overriden. Only for testing purposes */
-h1
+/* TODO: Layout and comments in this file */
+
+.container
 {
-    color: #85C040;
-    font-size: 200px;
-    text-align: center;
-    margin: 0;
+    overflow: hidden;
+    height: 100vh;
 }
 
-.highlighted
+.sidebar
 {
-    text-shadow: 5px 5px 10px black;
+    flex-grow: 1;
+    width: 60vw;
+    height: 100vh;
+    position: absolute;
+    background-color: rgb(240, 240, 240);
+    left: -60vw;
+}
+
+.sidebar-active
+{
+    left: 0;
+    transition: all 300ms linear;
+}
+
+.content
+{
+    flex-grow: 1;
+    flex-basis: 50%;
+}
+
+.menu-button-grey
+{
+    width: 100%;
+    height: 8em;
+    display: flex;
+    color: #85C040;
+    border-bottom: 0.2em solid rgb(230, 230, 230);
+}
+
+.menu-button-grey:hover
+{
+    background-color: rgb(230, 230, 230);
+    border-bottom: 0.2em solid rgb(230, 230, 230);
+}
+
+.menu-button-grey a
+{
+    margin: auto;
+    text-decoration: none;
+    font-size: 4em;
+    font-weight: lighter;
+    text-shadow: 0.03em 0.03em rgb(50, 50, 50);
 }
