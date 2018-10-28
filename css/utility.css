@@ -1,0 +1,96 @@
+/* TODO: Layout and comments in this file */
+
+.container
+{
+    height: 100vh;
+}
+
+.hidden
+{
+    display: none !important;
+}
+
+.transparent-background
+{
+    background-color: rgba(0,0,0,0) !important;
+}
+
+.sidebar
+{
+    flex-grow: 1;
+    width: 60vw;
+    height: 100vh;
+    position: absolute;
+    background-color: rgb(240, 240, 240);
+    left: -60vw;
+    z-index: 10;
+    transition-property: transform;
+    transition-duration: 200ms;
+    transition-timing-function: linear;
+}
+
+.sidebar-active
+{
+    transform: translate(60vw);
+}
+
+.sidebar-show-button
+{
+    position: absolute;
+    width: 40px;
+    height: 40px; 
+    left: 5px;
+    top: 10px;
+    cursor: pointer;
+    background-image: url("../img/hamburger.png");
+    background-size: contain;
+}
+
+.sidebar-hide-button-background
+{
+    height: 100vh; 
+    width: 100vw; 
+    position: absolute; 
+    background-color: rgba(0,0,0,0.5);
+    transition-property: background-color;
+    transition-duration: 200ms;
+    transition-timing-function: ease-in;
+}
+
+.sidebar-hide-button
+{
+    height: 100%; 
+    width: 100%; 
+    cursor: pointer;
+}
+
+.content
+{
+    flex-grow: 1;
+    flex-basis: 50%;
+}
+
+.menu-button-grey
+{
+    width: 100%;
+    height: 8em;
+    display: flex;
+    color: #85C040;
+    border-bottom: 0.2em solid rgb(230, 230, 230);
+}
+
+.menu-button-grey:hover
+{
+    background-color: rgb(230, 230, 230);
+    border-bottom: 0.2em solid rgb(230, 230, 230);
+    cursor: pointer;
+}
+
+.menu-button-grey a
+{
+    margin: auto;
+    text-decoration: none;
+    font-size: 4em;
+    font-weight: lighter;
+    text-shadow: 0.03em 0.03em rgb(50, 50, 50);
+}
