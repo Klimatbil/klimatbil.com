@@ -1,5 +1,10 @@
 /* TODO: Layout and comments in this file */
 
+body
+{
+    overflow: hidden;
+}
+
 .container
 {
     height: 100vh;
@@ -40,6 +45,7 @@
     transition-property: transform;
     transition-duration: 200ms;
     transition-timing-function: linear;
+    overflow: auto;
 }
 
 .sidebar-active
