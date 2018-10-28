@@ -15,6 +15,19 @@
     background-color: rgba(0,0,0,0) !important;
 }
 
+.noSelect 
+{
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    outline: none;
+}
+
 .sidebar
 {
     flex-grow: 1;
@@ -44,7 +57,6 @@
     cursor: pointer;
     background-image: url("../img/hamburger.png");
     background-size: contain;
-    outline: none;
 }
 
 .sidebar-hide-button-background
