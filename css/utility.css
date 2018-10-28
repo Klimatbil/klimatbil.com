@@ -15,6 +15,7 @@
     background-color: rgba(0,0,0,0) !important;
 }
 
+/* Prevents divs and text from getting a highlight color on all devices */
 .noSelect 
 {
     -webkit-tap-highlight-color: transparent;
@@ -24,18 +25,17 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-
     outline: none;
 }
 
 .sidebar
 {
     flex-grow: 1;
-    width: 60vw;
+    width: 70vw;
     height: 100vh;
     position: absolute;
     background-color: rgb(240, 240, 240);
-    left: -60vw;
+    left: -70vw;
     z-index: 10;
     transition-property: transform;
     transition-duration: 200ms;
@@ -44,7 +44,7 @@
 
 .sidebar-active
 {
-    transform: translate(60vw);
+    transform: translate(70vw);
 }
 
 .sidebar-show-button
