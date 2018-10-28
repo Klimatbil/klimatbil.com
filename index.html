@@ -16,7 +16,7 @@
     <div class="container">
         <!-- Sidebar
         ================================================== -->
-        <aside class="sidebar flex-column">
+        <aside id="js-sidebar" class="sidebar flex-column">
             <ul style="width: 100%">
                 <li class="menu-button-grey"><a href="aboutus.html">Hem</a></li>
                 <li class="menu-button-grey"><a href="aboutus.html">Om oss</a></li>
@@ -27,14 +27,19 @@
             </ul>
         </aside>
 
+        <!-- Sidebar reset 
+        ================================================== -->
+        <div id="js-sidebar-reset-background" class="transparent-background sidebar-hide-button-background">
+            <div id="js-sidebar-reset" class="hidden sidebar-hide-button" onclick=setSidebarDisplayed(false);></div>
+        </div>
+
+        <!-- Open sidebar button (hamburger menu button)
+        ================================================== -->
+        <div class="sidebar-show-button" onclick=setSidebarDisplayed(true);></div>
+
         <!-- Main content
         ================================================== -->
         <div class="content flex-column">
-            <div class="">
-                <!--TODO: Open sidebar button and a div with 40vw that is offset by 
-                    60vw which closes the sidebar-->
-            </div>
-
             <div>
                 <h1>Klimatbil.com</h1>
                 <h2>Klimatbil.com</h2>
