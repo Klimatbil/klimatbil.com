@@ -1,8 +1,6 @@
 /*  Font imports
 ================================================== */
-
-/* TODO: Download font so you don't have to make an api call */
-@import url('https://fonts.googleapis.com/css?family=Exo:700');
+@import url("../resources/fonts/exo.ttf");
 
 /*  Components
 ================================================== */
