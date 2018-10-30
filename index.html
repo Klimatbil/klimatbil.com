@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="se">
 <head>
+    <title>Klimatbil | Klimatkompensera enkelt</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Klimatbil | Klimatkompensera enkelt</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Ett enkelt sätt att klimatkompensera utsläppen från ditt fordon. Billigt, snabbt och enkelt!">
     <meta name="theme-color" content="#85c040">
@@ -16,37 +16,28 @@
     <link rel="stylesheet" type="text/css" media="screen" href="css/utility.css" />
 </head>
 <body>
-    <div class="container">
-        <!-- Sidebar
+    <div class="landing-container">
+        <!-- Modal drawer
         ================================================== -->
-        <aside id="js-sidebar" class="sidebar flex-column">
+        <aside id="js-drawer" class="drawer flex-column">
             <ul style="width: 100%">
                 <li class="menu-button-grey"><a href="aboutus.html">Hem</a></li>
                 <li class="menu-button-grey"><a href="aboutus.html">Om oss</a></li>
                 <li class="menu-button-grey"><a href="aboutus.html">Hem</a></li>
                 <li class="menu-button-grey"><a href="aboutus.html">Hem</a></li>
                 <li class="menu-button-grey"><a href="aboutus.html">Hem</a></li>
-                <li class="menu-button-grey"><a href="aboutus.html">Hem</a></li>
-                <li class="menu-button-grey"><a href="aboutus.html">Hem</a></li>
-                <li class="menu-button-grey"><a href="aboutus.html">Hem</a></li>
-                <li class="menu-button-grey"><a href="aboutus.html">Hem</a></li>
-                <li class="menu-button-grey"><a href="aboutus.html">Hem</a></li>
-                <li class="menu-button-grey"><a href="aboutus.html">Hem</a></li>
-                <li class="menu-button-grey"><a href="aboutus.html">Hem</a></li>
-                <li class="menu-button-grey"><a href="aboutus.html">Hem</a></li>
-                <li class="menu-button-grey"><a href="aboutus.html">Hem</a></li>
             </ul>
         </aside>
 
-        <!-- Sidebar reset 
+        <!-- Modal drawer hide 
         ================================================== -->
-        <div id="js-sidebar-reset-background" class="transparent-background sidebar-hide-button-background">
-            <div id="js-sidebar-reset" class="hidden sidebar-hide-button" onclick=ToggleSidebar();></div>
+        <div id="js-drawer-hide-background" class="transparent-background drawer-hide-background">
+            <div id="js-drawer-hide" class="hidden drawer-hide" onclick=ToggleDrawer();></div>
         </div>
 
-        <!-- Open sidebar button (hamburger menu button)
+        <!-- Modal drawer show
         ================================================== -->
-        <div class="noSelect sidebar-show-button" onclick=ToggleSidebar();></div>
+        <div class="noSelect drawer-show-button" onclick=ToggleDrawer();></div>
 
         <!-- Main content
         ================================================== -->
