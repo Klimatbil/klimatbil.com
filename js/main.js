@@ -1,25 +1,16 @@
-$(function()
+function DOMReady()
 {
-    console.log("DOM loaded (msg from jQuery)");
-});
+    console.log("DOM loaded");
+}
 
+DOMReady();
 
 /**
- * Adds or removes class "sidebar-active" to the sidebar which either toggles it to be displayed or hidden.
- * @param {boolean} displayed - Determines whether the sidebar should be displayed or not.
+ * Toggles the visibility of the modal drawer and elements that relate to it (the reset div, for example). 
  */
-function setSidebarDisplayed(displayed)
+function ToggleSidebar()
 {
-    if (displayed === true)
-    {
-        $("#js-sidebar").addClass("sidebar-active");
-        $("#js-sidebar-reset-background").removeClass("transparent-background");
-        $("#js-sidebar-reset").removeClass("hidden");
-    }
-    else 
-    {
-        $("#js-sidebar").removeClass("sidebar-active");
-        $("#js-sidebar-reset-background").addClass("transparent-background");
-        $("#js-sidebar-reset").addClass("hidden");
-    }
+    document.getElementById("js-sidebar").classList.toggle("sidebar-active");
+    document.getElementById("js-sidebar-reset-background").classList.toggle("transparent-background");
+    document.getElementById("js-sidebar-reset").classList.toggle("hidden");
 }
