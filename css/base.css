@@ -3,6 +3,7 @@
 @font-face
 {
     font-family: Exo;
+    font-display: swap;
     src: url("../resources/fonts/exo.ttf");
 }
 
