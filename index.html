@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="se">
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Klimatbil | Enkel klimatkompensation</title>
+    <title>Klimatbil | Klimatkompensera enkelt</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Ett enkelt sätt att klimatkompensera utsläppen från ditt fordon. Billigt, snabbt och enkelt!">
 
-    <!-- Styles
+    <!-- Important Styles
     ================================================== -->
-    <link rel="stylesheet" type="text/css" media="screen" href="css/normalize.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/base.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/utility.css" />
 </head>
@@ -38,12 +38,12 @@
         <!-- Sidebar reset 
         ================================================== -->
         <div id="js-sidebar-reset-background" class="transparent-background sidebar-hide-button-background">
-            <div id="js-sidebar-reset" class="hidden sidebar-hide-button" onclick=setSidebarDisplayed(false);></div>
+            <div id="js-sidebar-reset" class="hidden sidebar-hide-button" onclick=ToggleSidebar();></div>
         </div>
 
         <!-- Open sidebar button (hamburger menu button)
         ================================================== -->
-        <div class="noSelect sidebar-show-button" onclick=setSidebarDisplayed(true);></div>
+        <div class="noSelect sidebar-show-button" onclick=ToggleSidebar();></div>
 
         <!-- Main content
         ================================================== -->
@@ -72,6 +72,10 @@
             </div>
         </div>
     </div>
+
+    <!-- Secondary Styles
+    ================================================== -->
+    <link rel="stylesheet" type="text/css" media="screen" href="css/normalize.css" />
 
     <!-- JavaScript
     ================================================== -->
