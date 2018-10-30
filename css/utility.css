@@ -1,4 +1,4 @@
-.container
+.landing-container
 {
     height: 100vh;
 }
@@ -26,7 +26,7 @@
     outline: none; /* For chrome on android */
 }
 
-.sidebar
+.drawer
 {
     background-color: rgb(240, 240, 240);
     flex-grow: 1;
@@ -41,12 +41,12 @@
     z-index: 10;
 }
 
-.sidebar-active
+.drawer-active
 {
     transform: translate(70vw);
 }
 
-.sidebar-show-button
+.drawer-show-button
 {
     background-image: url("../img/hamburger.png");
     background-size: contain;
@@ -58,7 +58,7 @@
     width: 40px;
 }
 
-.sidebar-hide-button-background
+.drawer-hide-background
 {
     background-color: rgba(0,0,0,0.5);
     height: 100vh;
@@ -69,7 +69,7 @@
     width: 100vw;
 }
 
-.sidebar-hide-button
+.drawer-hide
 {
     cursor: pointer;
     height: 100%;

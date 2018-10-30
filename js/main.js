@@ -8,9 +8,9 @@ DOMReady();
 /**
  * Toggles the visibility of the modal drawer and elements that relate to it (the reset div, for example). 
  */
-function ToggleSidebar()
+function ToggleDrawer()
 {
-    document.getElementById("js-sidebar").classList.toggle("sidebar-active");
-    document.getElementById("js-sidebar-reset-background").classList.toggle("transparent-background");
-    document.getElementById("js-sidebar-reset").classList.toggle("hidden");
+    document.getElementById("js-drawer").classList.toggle("drawer-active");
+    document.getElementById("js-drawer-hide-background").classList.toggle("transparent-background");
+    document.getElementById("js-drawer-hide").classList.toggle("hidden");
 }
