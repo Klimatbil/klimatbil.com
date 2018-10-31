@@ -1,31 +1,54 @@
+/*  Landing page
+================================================== */
 .landing-container
 {
     height: 100vh;
 }
 
-.hidden
+.content
 {
-    display: none !important;
+    flex-basis: 50%;
+    flex-grow: 1;
 }
 
-.transparent-background
+/*  Brand section
+================================================== */
+.brand
 {
-    background-color: rgba(0,0,0,0) !important;
+    width: 100vw;
+    height: 150px;
+    margin-top: 150px;
+    margin-bottom: 60px;
+    align-content: flex-start
 }
 
-/* Prevents divs and text from getting a highlight color on all devices */
-.noSelect 
+.brand-text-holder
 {
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    outline: none; /* For chrome on android */
+    padding-left: 20px;
+    flex-grow: 1;
 }
 
+.brand h1
+{
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.brand h2
+{
+    font-size: 1.5em;
+    color: #666666;
+    margin-top: 0;
+}
+
+.brand-logo-holder
+{
+    flex-grow: 1;
+}
+
+
+/*  Modal drawer
+================================================== */
 .drawer
 {
     background-color: rgb(240, 240, 240);
@@ -51,11 +74,11 @@
     background-image: url("../img/hamburger.png");
     background-size: contain;
     cursor: pointer;
-    height: 40px;
+    height: 55px;
     left: 5px;
     position: absolute;
-    top: 10px;
-    width: 40px;
+    top: 5px;
+    width: 55px;
 }
 
 .drawer-hide-background
@@ -76,12 +99,9 @@
     width: 100%;
 }
 
-.content
-{
-    flex-basis: 50%;
-    flex-grow: 1;
-}
 
+/*  Drawer buttons
+================================================== */
 .menu-button-grey
 {
     border-bottom: 0.2em solid rgb(230, 230, 230);
@@ -105,4 +125,30 @@
     margin: auto;
     text-decoration: none;
     text-shadow: 0.03em 0.03em rgb(50, 50, 50);
+}
+
+
+/*  Helpers
+================================================== */
+.hidden
+{
+    display: none !important;
+}
+
+.transparent-background
+{
+    background-color: rgba(0,0,0,0) !important;
+}
+
+/* Prevents divs and text from getting a highlight color on all devices */
+.noSelect 
+{
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    outline: none; /* For chrome on android */
 }
