@@ -85,6 +85,7 @@
 {
     background-color: rgba(0,0,0,0.5);
     height: 100vh;
+    pointer-events: none;
     position: absolute;
     transition-duration: 200ms;
     transition-property: background-color;
