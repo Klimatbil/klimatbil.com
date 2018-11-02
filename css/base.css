@@ -31,7 +31,7 @@ body
 {
     box-sizing: border-box;
     background-color: #ecfde0;
-    font-family: 'Roboto', sans-serif;
+    font-family: Tahoma, Geneva, sans-serif;
     font-size: 62.5%; /* 16px * 0.625 = 10px ---> 1em = 10px */
     overflow: hidden;
 }
