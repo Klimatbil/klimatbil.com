@@ -3,47 +3,12 @@
 .landing-container
 {
     height: 100vh;
+    width: 100vw;
 }
 
 .content
 {
-    flex-basis: 50%;
-    flex-grow: 1;
-}
-
-/*  Brand section
-================================================== */
-.brand
-{
     width: 100vw;
-    height: 150px;
-    margin-top: 150px;
-    margin-bottom: 60px;
-    align-content: flex-start
-}
-
-.brand-text-holder
-{
-    padding-left: 20px;
-    flex-grow: 1;
-}
-
-.brand h1
-{
-    padding: 0;
-    margin-bottom: 0;
-}
-
-.brand h2
-{
-    font-size: 1.5em;
-    color: #666666;
-    margin-top: 0;
-}
-
-.brand-logo-holder
-{
-    flex-grow: 1;
 }
 
 
@@ -127,6 +92,99 @@
     margin: auto;
     text-decoration: none;
     text-shadow: 0.03em 0.03em rgb(50, 50, 50);
+}
+
+
+/*  Brand section
+================================================== */
+.brand
+{
+    align-items: stretch;
+    height: 150px;
+    justify-content: center;
+    margin-top: 150px;
+    width: 100vw;
+}
+
+.brand-text-holder
+{
+    margin-right: 10px;
+    text-align: right;
+}
+
+.brand h1
+{
+    margin-bottom: 0;
+    margin-top: 40px;
+}
+
+.brand h2
+{
+    color: #666666;
+    margin-top: 0;
+}
+
+.brand-logo-holder
+{
+    display: block;
+    margin-left: 10px;
+}
+
+.brand-logo-holder img
+{
+    display: block;
+    margin-top: 30px;
+}
+
+@media screen and (max-width: 500px)
+{
+    .brand h1 { font-size: 13vw; }
+    .brand h2 { font-size: 4.3vw; }
+
+    .brand-logo-holder img
+    {
+        width: 25vw;
+    }
+}
+
+@media screen and (min-width: 501px)
+{
+    .brand h1 { font-size: 65px; }
+    .brand h2 { font-size: 22px; }
+
+    .brand-logo-holder img
+    {
+        width: 120px;
+    }
+}
+
+
+/*  Compensate button
+================================================== */
+.compensate-button
+{
+    background: linear-gradient(to bottom, #c0eb00 5%, #4ead00 100%);
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 3px 13px 0px #919191;
+    cursor: pointer;
+    margin-top: 20px;
+    padding: 35px 40px;
+}
+
+.compensate-button a
+{
+    color: #f5f5f5;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 33px;
+    font-weight: 600;
+    text-decoration: none;
+    text-shadow: -1px 1px 5px #3d3d3d;
+}
+
+.compensate-button:hover
+{
+    box-shadow: 0px 3px 25px 0px #747474;
 }
 
 
