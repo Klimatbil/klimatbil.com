@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="se">
+<head>
+    <title>Klimatbil | Klimatkompensera</title>
+
+    <!-- Meta
+    ================================================== -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Marcus Otterström" />
+    <meta name="description" content="Klimatbil erbjuder dig ett enkelt sätt att klimatkompensera utsläppen från dina fordon. Billigt, snabbt och enkelt!" />
+    <meta name="keywords" content="klimatbil,klimatkompensera,enkelt,bil,fordon,klimatkompensera enkelt,klimatkompensera bil,klimatkompensera fordon,klimat,kompensera,miljö,miljöbil" />
+    <meta name="google-site-verification" content="W6j5xg9AeD_mS-yk2hXOmXq7zIMMWnQr2YlV4H961a0" />
+    <meta name="theme-color" content="#85c040" />
+
+    <meta property="og:site_name" content="Klimatbil" />
+    <meta property="og:title" content="Klimatbil | Klimatkompensera enkelt" />
+    <meta property="og:description" content="Klimatbil erbjuder dig ett enkelt sätt att klimatkompensera utsläppen från dina fordon. Billigt, snabbt och enkelt!" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://klimatbil.github.io/" />
+    <meta property="og:locale" content="sv_SE" />
+    <meta property="og:image" content="https://preview.ibb.co/iXbS7f/klimatbil-uf-logo.png" />
+    <meta property="og:image:height" content="1024" />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:type" content="image/png" />
+
+    <!-- Links
+    ================================================== -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="manifest" href="manifest.json" />
+
+    <!-- Important Styles
+    ================================================== -->
+    <link rel="stylesheet" type="text/css" media="screen" href="css/base.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/utility.css" />
+</head>
+<body>
+    <h1>Klimatkompensera</h1>
+    <form action="/charge" method="post" id="payment-form">
+        <div class="form-row">
+            <label for="card-element">
+            Credit or debit card
+            </label>
+            <div id="card-element">
+            <!-- A Stripe Element will be inserted here. -->
+            </div>
+
+            <!-- Used to display form errors. -->
+            <div id="card-errors" role="alert"></div>
+        </div>
+        <button>Submit Payment</button>
+    </form>
+
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="js/charge.js"></script>
+</body>
+</html>
