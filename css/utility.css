@@ -213,15 +213,13 @@
     outline: none; /* For chrome on android */
 }
 
-/* paragraph content
+/* Paragraph
 ================================================== */
 .paragraph-content
 {
     margin-top: 60px;
 }
 
-/*  paragraph header
-================================================== */
 .paragraph-header
 {
     margin-left: 15px;
