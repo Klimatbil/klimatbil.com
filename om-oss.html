@@ -17,7 +17,7 @@
     <meta property="og:title" content="Klimatbil | Om klimatbil" />
     <meta property="og:description" content="Klimatbil erbjuder dig ett enkelt sätt att klimatkompensera utsläppen från dina fordon. Billigt, snabbt och enkelt!" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://klimatbil.github.io/" />
+    <meta property="og:url" content="https://klimatbil.com/" />
     <meta property="og:locale" content="sv_SE" />
     <meta property="og:image" content="https://preview.ibb.co/iXbS7f/klimatbil-uf-logo.png" />
     <meta property="og:image:height" content="1024" />
@@ -30,10 +30,48 @@
     <link rel="stylesheet" type="text/css" media="screen" href="css/utility.css" />
 </head>
 <body>
-    <div>
-        <h1>Om oss</h1>
-    </div>
+    <div class="landing-container">
+        <!-- Modal drawer
+        ================================================== -->
+        <aside id="js-drawer" class="drawer flex-column">
+            <ul style="width: 100%">
+                <li class="menu-button-grey"><a href="index.html">Hem</a></li>
+                <li class="menu-button-grey"><a href="klimatkompensera.html">Kompensera</a></li>
+                <li class="menu-button-grey"><a href="om-oss.html">Om oss</a></li>
+                <li class="menu-button-grey"><a href="om-oss.html">Om oss</a></li>
+                <li class="menu-button-grey"><a href="om-oss.html">Om oss</a></li>
+            </ul>
+        </aside>
 
+        <!-- Modal drawer hide 
+        ================================================== -->
+        <div id="js-drawer-hide-background" class="transparent-background drawer-hide-background">
+            <div id="js-drawer-hide" class="hidden drawer-hide" onclick=ToggleDrawer();></div>
+        </div>
+
+        <!-- Modal drawer show
+        ================================================== -->
+        <div class="noSelect drawer-show-button" onclick=ToggleDrawer();></div>
+
+        <!-- Main content
+        ================================================== -->
+        <div class="content flex-column">
+            <div class="paragraph-content">
+                <div class="paragraph-header">
+                    <h1 >Om oss</h1>
+                </div>
+                <div class="text-box">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, autem ex! Laborum illo magni nihil quam voluptates! Cumque ullam atque, dolor odit recusandae ipsam ea quisquam sed illum perspiciatis error obcaecati, quam, labore eos! A id molestiae tenetur nam minus. Sequi cum porro reprehenderit mollitia aliquid quasi provident sed id.
+                </div>
+                <div class = "footer">
+                    <p>
+                        Klimatbil UF - 2018
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>  
     <!-- JavaScript
     ================================================== -->
     <script src="js/main.js"></script>

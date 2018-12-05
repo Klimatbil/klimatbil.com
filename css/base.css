@@ -31,7 +31,7 @@ body
 {
     box-sizing: border-box;
     background-color: #ecfde0;
-    font-family: Tahoma, Geneva, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 62.5%; /* 16px * 0.625 = 10px ---> 1em = 10px */
     overflow: hidden;
 }
@@ -67,7 +67,7 @@ h1, h2, h3, h4, h5, h6
     margin: 0.25em 0;
 }
 
-h1 { font-size: 4.5em;    }
+h1 { font-size: 4.5em;  }
 h2 { font-size: 3em;    }
 h3 { font-size: 2em;    }
 h4 { font-size: 1.5em;  }

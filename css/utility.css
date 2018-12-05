@@ -8,7 +8,7 @@
 
 .content
 {
-    width: 100vw;
+    /* margin-top: 150px; */ /* This ruins the layout of every single page */
 }
 
 
@@ -99,10 +99,10 @@
 ================================================== */
 .brand
 {
+    margin-top: 150px;
     align-items: stretch;
     height: 150px;
     justify-content: center;
-    margin-top: 150px;
     width: 100vw;
 }
 
@@ -213,28 +213,39 @@
     outline: none; /* For chrome on android */
 }
 
-
-/*  Stripe test styles
+/* paragraph content
 ================================================== */
-.StripeElement {
-    background-color: white;
-    height: 40px;
-    padding: 10px 12px;
-    border-radius: 4px;
-    border: 1px solid transparent;
-    box-shadow: 0 1px 3px 0 #e6ebf1;
-    -webkit-transition: box-shadow 150ms ease;
-    transition: box-shadow 150ms ease;
-  }
-  
-  .StripeElement--focus {
-    box-shadow: 0 1px 3px 0 #cfd7df;
-  }
-  
-  .StripeElement--invalid {
-    border-color: #fa755a;
-  }
-  
-  .StripeElement--webkit-autofill {
-    background-color: #fefde5 !important;
-  }
+.paragraph-content
+{
+    margin-top: 60px;
+}
+
+/*  paragraph header
+================================================== */
+.paragraph-header
+{
+    margin-left: 15px;
+}
+
+/*  Text box
+================================================== */
+.text-box
+{
+    font-size: 18px;
+    color: #f5f5f5;
+    background-color: rgb(152, 209, 87);
+    border-radius: 10px;
+    margin: 15px;
+    padding: 7%;
+
+}
+
+/*  Footer
+================================================== */
+.footer
+{
+    font-size: 10px;
+    color: #444444;
+    text-align: center;
+
+}
