@@ -35,19 +35,61 @@
     <link rel="stylesheet" type="text/css" media="screen" href="css/utility.css" />
 </head>
 <body>
-    <h1>Klimatkompensera</h1>
-    <form action="https://wt-a1a4d75d2e7f5a03df41a2e03b3cd9d7-0.sandbox.auth0-extend.com/stripe-payment?amount=2500&description=24+liter+95-oktan" method="POST">
-    <script
-        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-        data-key="pk_test_bG7vG8DfCvej8dpMZMByDgPZ"
-        data-amount="4000"
-        data-name="Klimatkompensation"
-        data-description="24 liter 95-oktan"
-        data-image="https://preview.ibb.co/iXbS7f/klimatbil-uf-logo.png"
-        data-locale="sv_SE"
-        data-label="Betala med kort"
-        data-currency="sek">
-    </script>
-    </form>
+    <div class="landing-container">
+        <!-- Modal drawer
+        ================================================== -->
+        <aside id="js-drawer" class="drawer flex-column">
+            <ul style="width: 100%">
+                <li class="menu-button-grey"><a href="index.html">Hem</a></li>
+                <li class="menu-button-grey"><a href="klimatkompensera.html">Kompensera</a></li>
+                <li class="menu-button-grey"><a href="om-oss.html">Om oss</a></li>
+                <li class="menu-button-grey"><a href="om-oss.html">Om oss</a></li>
+                <li class="menu-button-grey"><a href="om-oss.html">Om oss</a></li>
+            </ul>
+        </aside>
+    
+        <!-- Modal drawer hide 
+        ================================================== -->
+        <div id="js-drawer-hide-background" class="transparent-background drawer-hide-background">
+            <div id="js-drawer-hide" class="hidden drawer-hide noSelect" onclick=ToggleDrawer();></div>
+        </div>
+    
+        <!-- Modal drawer show
+        ================================================== -->
+        <div class="noSelect drawer-show-button" onclick=ToggleDrawer();></div>
+    
+        <!-- Main content
+        ================================================== -->
+        <div class="content flex-column">
+            <!-- This will be in css later, temp spacing -->
+            <br /> <br /> <br /> <br /> <br /> <br />
+            <h1>Klimatkompensera</h1>
+            <form action="https://wt-a1a4d75d2e7f5a03df41a2e03b3cd9d7-0.sandbox.auth0-extend.com/stripe-payment?amount=2500&description=24+liter+95-oktan" method="POST">
+            <script
+                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="pk_test_bG7vG8DfCvej8dpMZMByDgPZ"
+                data-amount="4000"
+                data-name="Klimatkompensation"
+                data-description="24 liter 95-oktan"
+                data-image="https://preview.ibb.co/iXbS7f/klimatbil-uf-logo.png"
+                data-locale="sv_SE"
+                data-label="Betala med kort"
+                data-currency="sek">
+            </script>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript
+    ================================================== -->
+    <script src="js/main.js"></script>
+
+    <!-- Secondary Styles
+    ================================================== -->
+    <link rel="stylesheet" type="text/css" media="screen" href="css/normalize.css" />
+
+    <!-- McAfee trust mark
+    ================================================== -->
+    <script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async></script>
 </body>
 </html>
