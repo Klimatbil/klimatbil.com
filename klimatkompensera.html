@@ -63,14 +63,23 @@
         <div class="content flex-column">
             <!-- This will be in css later, temp spacing -->
             <br /> <br /> <br /> <br /> <br /> <br />
-            <h1>Klimatkompensera</h1>
-            <form action="https://wt-a1a4d75d2e7f5a03df41a2e03b3cd9d7-0.sandbox.auth0-extend.com/stripe-payment?amount=2500&description=24+liter+95-oktan" method="POST">
+            <h1>Kompensera</h1>
+            <script>
+                function UpdateAction(inputValue)
+                {
+                    var form = document.getElementById("js-payment-form");
+                    form.action = `https://wt-a1a4d75d2e7f5a03df41a2e03b3cd9d7-0.sandbox.auth0-extend.com/stripe-payment?amount=${inputValue * 100}&description=24+liter+95-oktan`;
+                }
+            </script>
+            <input type="number" onchange="UpdateAction(this.value)"></input>
+            <br />
+            <form action="" method="POST" id="js-payment-form">
             <script
-                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                src="https://checkout.stripe.com/checkout.js" class="stripe-button" id="js-payment-script"
                 data-key="pk_test_bG7vG8DfCvej8dpMZMByDgPZ"
-                data-amount="4000"
+                data-amount="0"
                 data-name="Klimatkompensation"
-                data-description="24 liter 95-oktan"
+                data-description="Klimatbil UF"
                 data-image="https://preview.ibb.co/iXbS7f/klimatbil-uf-logo.png"
                 data-locale="sv_SE"
                 data-label="Betala med kort"
