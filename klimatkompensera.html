@@ -61,18 +61,86 @@
         <!-- Main content
         ================================================== -->
         <div class="content flex-column">
-            <!-- This will be in css later, temp spacing -->
-            <br /> <br /> <br /> <br /> <br /> <br />
             <h1>Kompensera</h1>
+
             <script>
-                function UpdateAction(inputValue)
+                // Probably want to move this somewhere
+                // and extract into separate methods
+                function UpdateTotal()
                 {
-                    var form = document.getElementById("js-payment-form");
-                    form.action = `https://wt-a1a4d75d2e7f5a03df41a2e03b3cd9d7-0.sandbox.auth0-extend.com/stripe-payment?amount=${inputValue * 100}&description=24+liter+95-oktan`;
+                    const gasolineMultiplier = 0.00234769703;
+                    const dieselMultiplier = 0.0026892715;
+
+                    let literAmount = document.getElementById("js-liter-input").value;
+                    let fuelType = document.getElementById("js-fuel-select").value;
+                    
+                    let emissionMultiplier = 0;
+
+                    switch(fuelType)
+                    {
+                        case "Bensin":
+                            emissionMultiplier = gasolineMultiplier;
+                            break;
+                        
+                        case "Diesel":
+                            emissionMultiplier = dieselMultiplier;
+                            break;
+                        
+                        default:
+                            alert(`${fuelType} is not a recognized fuel type.`);
+                            return;
+                    }
+
+                    document.getElementById("js-co2-emission").innerText = `${(literAmount * emissionMultiplier).toFixed(4)}`
+                    
+                    let customPaymentValue = document.getElementById("js-money-input").value;
+                    
+                    if (customPaymentValue !== "")
+                    {
+                        let finalAmount = Math.round(parseInt(customPaymentValue));
+                        document.getElementById("js-total-amount").innerText = finalAmount;
+                        let form = document.getElementById("js-payment-form");
+                        form.action = `https://wt-a1a4d75d2e7f5a03df41a2e03b3cd9d7-0.sandbox.auth0-extend.com/stripe-payment?amount=${finalAmount * 100}&description=custom`;
+                    }
+                    else
+                    {
+                        // TODO: Add stripe amount, add service fee
+                        let finalAmount = Math.round(literAmount * emissionMultiplier * 240.64171123); // Arbitrary number from myclimate.org;
+                        document.getElementById("js-total-amount").innerText = finalAmount;
+                        let form = document.getElementById("js-payment-form");
+                        form.action = `https://wt-a1a4d75d2e7f5a03df41a2e03b3cd9d7-0.sandbox.auth0-extend.com/stripe-payment?amount=${finalAmount * 100}&description=${literAmount}+liter+${fuelType}`;
+                    }
                 }
             </script>
-            <input type="number" onchange="UpdateAction(this.value)"></input>
-            <br />
+            
+            <!-- TODO: PROPER STYLING -->
+            <span>Kompensera för en tankning<br /><br /></span>
+
+            <form>
+                <input id="js-liter-input" type="number" onchange="UpdateTotal()"></input>
+                <label for="js-liter-input">Liter</label>
+                <select id="js-fuel-select" onchange="UpdateTotal()">
+                    <option>Bensin</option>
+                    <option>Diesel</option>
+                </select>
+            </form>
+            <h5><span id="js-co2-emission">0.0000</span> ton koldioxid</h5>
+
+            <!-- TODO: PROPER STYLING -->
+            <br /> <br />
+            <em>eller</em>
+            <br /> <br />
+
+            <span>Kompensera valfritt belopp<br /><br /></span>
+            <form>
+                <input id="js-money-input" type="number" onchange="UpdateTotal()"></input>
+                <label for="js-literInput">SEK</label>
+            </form>
+
+            <!-- TODO: PROPER STYLING -->
+            <br /> <br />
+
+            <h3>Betala <span id="js-total-amount">0</span> kr</h3>
             <form action="" method="POST" id="js-payment-form">
             <script
                 src="https://checkout.stripe.com/checkout.js" class="stripe-button" id="js-payment-script"
