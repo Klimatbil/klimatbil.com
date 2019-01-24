@@ -30,7 +30,7 @@
 body
 {
     box-sizing: border-box;
-    background-color: #ecfde0;
+    background-color: #f5f5f5;  /*#ecfde0;*/
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 62.5%; /* 16px * 0.625 = 10px ---> 1em = 10px */
     overflow: hidden;
