@@ -1,20 +1,126 @@
-/*  Landing page
+/*  Wrappers
 ================================================== */
-.landing-container
+.page-wrapper
 {
-    height: 100vh;
+    /*height: 100vh;*/
     width: 100vw;
 }
 
+.content-wrapper
+{
+    margin-top: 94px;
+    width: 100%;
+}
+
+/*  Top navigation bar
+================================================== */
+.top-bar
+{
+    background-color: #f5f5f5;
+    overflow: hidden;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    display: flex;
+    box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.top-bar-logo
+{
+    flex-basis: 80%;
+    text-align: center;
+    display: flex;
+    margin: 0;
+}
+
+.top-bar-logo img
+{
+    padding: 15px;
+    width: 64px;
+    height: 64px;
+    cursor: pointer;
+}
+
+.top-bar-logo h1
+{
+    font-size: 3em;
+    margin-left: 0;
+    align-self: center;
+    cursor: pointer;
+}
+
+.top-nav-bar /* Kind of a bad name currently */
+{
+    flex-basis: 20%;
+    font-size: 3em;
+    cursor: pointer;
+    align-self: center;
+    text-align: center;
+}
+
+/*  Landing page
+================================================== */
+.landing-background
+{
+    background-image: url("../img/backdrop-test.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 85vh;
+}
+
+.landing-container
+{
+    padding-top: 30vh;
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-content: space-around;
+    flex-wrap: wrap;
+}
+
+.landing-item
+{
+    padding-left: 20px;
+    padding-right: 20px;
+    flex-basis: 100%;
+    color: #ffffff;
+    text-shadow: 0 0 10px #202020;
+    font-size: 2.5em;
+    text-align: center;
+}
+
+/*  Compensate button
+================================================== */
+.compensate-button
+{
+    background-color: rgb(126, 190, 52);
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    padding: 25px 60px;
+}
+
+.compensate-button a
+{
+    color: #f5f5f5;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    font-weight: 600;
+    text-decoration: none;
+    text-shadow: 0 0 6px #303030;
+}
+
+/*
 .content
 {
     padding-top: 50px;
 }
-
+*/
 
 /*  Modal drawer
 ================================================== */
-.drawer
+/* .drawer
 {
     background-color: rgb(240, 240, 240);
     flex-grow: 1;
@@ -69,6 +175,7 @@
 
 /*  Drawer buttons
 ================================================== */
+/*
 .menu-button-grey
 {
     border-bottom: 0.2em solid rgb(230, 230, 230);
@@ -92,11 +199,13 @@
     margin: auto;
     text-decoration: none;
     text-shadow: 0.03em 0.03em rgb(50, 50, 50);
-}
+} 
+*/
 
 
 /*  Brand section
 ================================================== */
+/*
 .brand
 {
     align-items: stretch;
@@ -156,35 +265,9 @@
         width: 120px;
     }
 }
+*/
 
 
-/*  Compensate button
-================================================== */
-.compensate-button
-{
-    background: linear-gradient(to bottom, #c0eb00 5%, #4ead00 100%);
-    border-radius: 10px;
-    border: none;
-    box-shadow: 0px 3px 13px 0px #919191;
-    cursor: pointer;
-    margin-top: 20px;
-    padding: 35px 40px;
-}
-
-.compensate-button a
-{
-    color: #f5f5f5;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 33px;
-    font-weight: 600;
-    text-decoration: none;
-    text-shadow: -1px 1px 5px #3d3d3d;
-}
-
-.compensate-button:hover
-{
-    box-shadow: 0px 3px 25px 0px #747474;
-}
 
 
 /*  Helpers
@@ -194,13 +277,15 @@
     display: none !important;
 }
 
+/*
 .transparent-background
 {
     background-color: rgba(0,0,0,0) !important;
 }
+*/
 
 /* Prevents divs and text from getting a highlight color on all devices */
-.noSelect 
+.noSelect /* TODO: Rename */
 {
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
@@ -215,14 +300,16 @@
 
 /* Paragraph
 ================================================== */
+/*
 .paragraph-header
 {
     margin-left: 15px;
 }
-
+*/
 
 /*  Text box
 ================================================== */
+/*
 .text-box
 {
     font-size: 18px;
@@ -239,12 +326,14 @@
     padding-top: 20%;
 }
 
-
+*/
 /*  Footer
 ================================================== */
+/*
 .footer
 {
     font-size: 10px;
     color: #444444;
     text-align: center;
 }
+*/
