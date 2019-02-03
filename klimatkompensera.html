@@ -130,9 +130,9 @@
             <span>Kompensera för en tankning<br /><br /></span>
 
             <form>
-                <input id="js-liter-input" type="number" onchange="UpdateTotal()"></input>
+                <input id="js-liter-input" type="number" oninput="UpdateTotal()"></input>
                 <label for="js-liter-input">Liter</label>
-                <select id="js-fuel-select" onchange="UpdateTotal()">
+                <select id="js-fuel-select" oninput="UpdateTotal()">
                     <option>Bensin</option>
                     <option>Diesel</option>
                 </select>
@@ -146,7 +146,7 @@
 
             <span>Kompensera valfritt belopp<br /><br /></span>
             <form>
-                <input id="js-money-input" type="number" onchange="UpdateTotal()"></input>
+                <input id="js-money-input" type="number" oninput="UpdateTotal()"></input>
                 <label for="js-literInput">SEK</label>
             </form>
 
