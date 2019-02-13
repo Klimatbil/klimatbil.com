@@ -17,7 +17,6 @@
 .top-bar
 {
     background-color: #f5f5f5;
-    overflow: hidden;
     position: fixed;
     top: 0px;
     width: 100%;
@@ -50,13 +49,93 @@
     cursor: pointer;
 }
 
-.top-nav-bar /* Kind of a bad name currently */
+.nav-bar-toggle
 {
     flex-basis: 20%;
     font-size: 3em;
     cursor: pointer;
     align-self: center;
     text-align: center;
+}
+
+.nav-bar
+{
+    position: fixed;
+    background-color: #f5f5f5;
+    transition-property: all;
+    transition-duration: 0.5s;
+    text-align: center;
+    color: #505050;
+    width: 100%;
+    font-family: Exo, sans-serif;
+    z-index: 5;
+}
+
+.nav-bar ul
+{
+    margin: 0;
+}
+
+.nav-bar-active
+{
+    top: 94px;
+}
+
+.nav-bar-inactive
+{
+    top: -362px;
+}
+
+.nav-link
+{
+    font-size: 3em;
+    padding-top: 1.25em;
+    padding-bottom: 1.25em;
+    background-color: #f5f5f5;
+}
+
+.nav-link:hover
+{
+    background-color: #cacaca;
+    cursor: pointer;
+}
+
+.overlap-background
+{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    transition-property: all;
+    transition-duration: 0.5s;
+    pointer-events: none;
+}
+
+.half-opaque-background
+{
+    background-color: rgba(0,0,0,0.6);
+}
+
+.transparent-background
+{
+    background-color: rgba(0,0,0,0);
+}
+
+.overlap-hide
+{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    cursor: pointer;
+}
+
+.hidden
+{
+    display: none !important;
 }
 
 /*  Landing page
