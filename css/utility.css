@@ -110,6 +110,7 @@
     transition-property: all;
     transition-duration: 0.5s;
     pointer-events: none;
+    z-index: 2;
 }
 
 .half-opaque-background
@@ -129,7 +130,7 @@
     height: 100vh;
     top: 0;
     left: 0;
-    z-index: 100;
+    z-index: 2;
     cursor: pointer;
 }
 
