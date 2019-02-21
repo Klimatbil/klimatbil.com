@@ -53,11 +53,51 @@
 
 .nav-bar-toggle
 {
-    flex-basis: 20%;
+    height: 100%;
+    flex-basis: 30%;
     font-size: 3em;
     cursor: pointer;
-    align-self: center;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.hamburger-line
+{
+    position: absolute;
+    height: 4px;
+    background-color: rgb(70, 70, 70);
+    width: 40px;
+    border-radius: 10px;
+    transition-property: all;
+    transition-duration: 0.25s;
+    transition-timing-function: cubic-bezier(0.25, 0.1, 0.28, 1.25);
+}
+
+.hamburger-top
+{
+    transform: translate(0, -11px);
+}
+
+.hamburger-bottom
+{
+    transform: translate(0, 11px);
+}
+
+.nav-bar-toggle.close .hamburger-top
+{
+    transform: rotate(45deg);
+}
+
+.nav-bar-toggle.close .hamburger-middle
+{
+    width: 0;
+}
+
+.nav-bar-toggle.close .hamburger-bottom
+{
+    transform: rotate(-45deg);
 }
 
 .nav-bar

@@ -22,4 +22,7 @@ function ToggleNavBar()
 
     let overlapHide = document.getElementById("js-overlap-hide");
     overlapHide.classList.toggle("hidden");
+
+    let hamburger = document.getElementById("js-nav-hamburger");
+    hamburger.classList.toggle("close");
 }
