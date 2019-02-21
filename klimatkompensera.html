@@ -40,11 +40,13 @@
         ================================================== -->
         <div class="top-bar">
             <div class="top-bar-logo">
-                <img src="img/logo-128.png" alt="Logotyp för Klimatbil" onclick="SetWindowLocationTo('https://www.klimatbil.com')" />
-                <h1 onclick="SetWindowLocationTo('https://www.klimatbil.com/')">Klimatbil</h1>
+                <img class="noSelectionHighlight" src="img/logo-128.png" alt="Logotyp för Klimatbil" onclick="SetWindowLocationTo('https://www.klimatbil.com')" />
+                <h1 class="noSelectionHighlight" onclick="SetWindowLocationTo('https://www.klimatbil.com/')">Klimatbil</h1>
             </div>
-            <div class="nav-bar-toggle" onclick="ToggleNavBar();">
-                &#9776
+            <div id="js-nav-hamburger" class="nav-bar-toggle noSelectionHighlight" onclick="ToggleNavBar();">
+                <span class="hamburger-line hamburger-top"></span>
+                <span class="hamburger-line hamburger-middle"></span>
+                <span class="hamburger-line hamburger-bottom"></span>
             </div>
         </div>
 
@@ -121,7 +123,7 @@
 
                         /*  Compensation fee
                         ================================================== */
-                        finalAmount = literAmount * emissionMultiplier; // Amount of co2 emissions in tonnes
+                        finalAmount = literAmount * emissionMultiplier;     // Amount of co2 emissions in tonnes
                         finalAmount *= 1000;                                // Amount of co2 in kg
                         finalAmount /= yearlyTreeCo2Consumption;            // Amount of trees that need to be planted to offset the carbon emissions.
                         finalAmount *= dollarToSek;                         // Amount of SEK required to buy those trees
@@ -136,9 +138,7 @@
                         finalAmount += 1.8;                                 // Add 1.8kr
                         finalAmount /= 0.986;                               // Add 1.4%
                         finalAmount = Math.ceil(finalAmount * 100) / 100;   // Ceil to the 2nd decimal
-
-
-
+                        
                         document.getElementById("js-total-amount").innerText = finalAmount;
                         let form = document.getElementById("js-payment-form");
                         form.action = `https://wt-a1a4d75d2e7f5a03df41a2e03b3cd9d7-0.sandbox.auth0-extend.com/stripe-payment?amount=${finalAmount * 100}&description=${literAmount}+liter+${fuelType}`;
