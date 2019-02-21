@@ -1,27 +1,50 @@
 /*  Font imports
 ================================================== */
-@font-face
+@font-face 
 {
-    font-family: Exo;
+    font-family: 'Exo';
+    src: url('../resources/fonts/Exo-Bold.woff2') format('woff2'),
+         url('../resources/fonts/Exo-Bold.woff')  format('woff');
+    font-weight: bold;
+    font-style: normal;
     font-display: swap;
-    src: url("../resources/fonts/exo.ttf");
 }
 
-
-/*  Components
-================================================== */
-.flex-column
+@font-face 
 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    font-family: 'Roboto';
+    src: url('../resources/fonts/Roboto-Italic.woff2') format('woff2'),
+         url('../resources/fonts/Roboto-Italic.woff')  format('woff');
+    font-weight: normal;
+    font-style: italic;
 }
 
-.flex-row
+@font-face 
 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    font-family: 'Roboto';
+    src: url('../resources/fonts/Roboto-Regular.woff2') format('woff2'),
+         url('../resources/fonts/Roboto-Regular.woff')  format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face 
+{
+    font-family: 'Roboto';
+    src: url('../resources/fonts/Roboto-Light.woff2') format('woff2'),
+         url('../resources/fonts/Roboto-Light.woff')  format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face 
+{
+    font-family: 'Roboto';
+    src: url('../resources/fonts/Roboto-Bold.woff2') format('woff2'),
+         url('../resources/fonts/Roboto-Bold.woff')  format('woff');
+    font-weight: bold;
+    font-style: normal;
 }
 
 
