@@ -53,10 +53,10 @@
 body
 {
     box-sizing: border-box;
-    background-color: #e5e5e5;  /*#ecfde0;*/
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #f5f5f5; /*#ecfde0;*/
+    font-family: 'Roboto', sans-serif;
     font-size: 62.5%; /* 16px * 0.625 = 10px ---> 1em = 10px */
-    /*overflow: hidden;*/
+    overflow-x: hidden;
 }
 
 article,
@@ -65,6 +65,27 @@ header,
 nav
 {
     padding: 0;
+}
+
+
+/*  Helpers
+================================================== */
+.hidden
+{
+    display: none !important;
+}
+
+/* Prevents divs and text from getting a highlight color on all devices */
+.noSelectionHighlight /* TODO: Rename */
+{
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    outline: none; /* For chrome on android */
 }
 
 
