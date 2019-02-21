@@ -12,7 +12,7 @@
 }
 
 
-/*  Top navigation bar
+/*  Top bar
 ================================================== */
 .top-bar
 {
@@ -100,6 +100,9 @@
     transform: rotate(-45deg);
 }
 
+
+/*  Navigation bar
+================================================== */
 .nav-bar
 {
     position: fixed;
@@ -151,8 +154,8 @@
 .overlap-background
 {
     position: fixed;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     top: 0;
     left: 0;
     transition-property: all;
@@ -174,17 +177,49 @@
 .overlap-hide
 {
     position: fixed;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     top: 0;
     left: 0;
     z-index: 2;
     cursor: pointer;
 }
 
-.hidden
+/*  Page ribbon
+================================================== */
+.page-ribbon
 {
-    display: none !important;
+    display: flex;
+    background-color: #85C040;
+    height: 6vh;
+    color: #f5f5f5;
+    text-shadow: 0 0 2px #000000;
+    font-size: 1.6em;
+    align-items: center;
+    padding-left: 5vw;
+}
+
+
+/*  Page banner
+================================================== */
+.page-banner
+{
+    width: 100%;
+    height: 30vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.page-banner h2
+{
+    position: relative;
+    bottom: -23vh;
+}
+
+.page-banner.compensate
+{
+    background-image: url("../img/klimatkompensera-banner.png");
 }
 
 
@@ -192,26 +227,18 @@
 ================================================== */
 .landing-background
 {
-    background-image: url("../img/backdrop-test.jpg");
+    background-image: url("../img/landing-page.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
     height: 70vh;
 }
 
-.landing-container
+.landing-text
 {
-    padding-top: 25vh;
-    height: 45vh;
-}
-
-.landing-item
-{
-    font-family: 'Roboto', sans-serif;
-    padding-left: 5vw;
-    padding-right: 5vw;
-    color: #f5f5f5;
-    text-shadow: 0 0 10px #202020;
-    font-size: 3em;
+    text-align: center;
+    padding-top: 45vh;
+    font-size: 1.1em;
 }
 
 
@@ -225,7 +252,7 @@
     background-color: rgb(126, 190, 52);
     border: none;
     cursor: pointer;
-    width: 100vw;
+    width: 100%;
     height: 15vh;
     box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.1);
 }
@@ -242,5 +269,116 @@
 
 .compensate-button:hover
 {
-    background-color: rgb(74, 134, 6);
+    background-color: rgb(70, 131, 0);
+}
+
+
+/*  Compensation page
+================================================== */
+.fuel-input-form
+{
+    display: flex;
+    background-color: #f5f5f5;
+    height: 15vh;
+    font-size: 1.5em;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.fuel-amount-input
+{
+    height: 100%;
+    text-align: center;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fuel-amount-input input
+{
+    -webkit-appearance: none;
+    height: 50%;
+    border: 1px solid gray;
+    color: #444444;
+    padding-bottom: 0;
+    font-size: 1.8em;
+    background: white;
+    outline: none;
+}
+
+.fuel-amount-input input[type="number"]
+{
+    width: 40%;
+    padding-left: 2vw;
+    border-right: 0px;
+    z-index: 1; /* Place over unit input field */
+}
+
+/* Unit label */
+.fuel-amount-input input[type="text"]
+{
+    width: 30%;
+    padding-right: 3vw;
+    padding-left: 3vw;
+    border-left: 0px;
+    margin: 0 0 0 -7px;
+    text-align: right;
+}
+
+.fuel-type-input
+{
+    height: 100%;
+    width: 50vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+
+.fuel-type-button
+{
+    height: 80%;
+    width: 20vw;
+    background-color: rgb(220, 220, 220);
+}
+
+.fuel-type-button:hover
+{
+    background-color: rgb(160, 160, 160);
+}
+
+.fuel-type-button.toggled
+{
+    background-color: #85C040;
+}
+
+.fuel-type-button h3
+{
+    margin-top: 2vh;
+    height: 5vh;
+    color: #444444;
+}
+
+.fuel-type-button div
+{
+    margin-top: 1vh;
+    color: #444444;
+}
+
+.custom-donation-prompt
+{
+    text-align: center;
+    font-size: 1.1em;
+    margin-top: 3vh;
+    padding-top: 1.5vh;
+    padding-bottom: 1.5vh;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    margin-bottom: 1.5vh;
+    background-color: #c5c5c5;
+    border-radius: 10px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
