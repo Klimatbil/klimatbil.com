@@ -66,127 +66,76 @@
 
         <!-- Page content
         ================================================== -->
-        <div class="content-wrapper" style="text-align: center;"> <!-- Temp inline -->
-            <br /> <br /> <br /> <br /> <br /> <br />
-            <h1>Kompensera</h1>
-
-            <script>
-                // Probably want to move this somewhere
-                // and extract into separate methods
-                function UpdateTotal()
-                {
-                    const gasolineMultiplier = 0.00234769703; // converts liters of gasoline to co2 emission in tonnes
-                    const dieselMultiplier = 0.0026892715; // converts liters of diesel to co2 emission in tonnes
-                    const yearlyTreeCo2Consumption = 21.7724 // in kilograms
-                    const dollarToSek = 9.3 // value of 1 dollar in sek
-
-                    let literAmount = document.getElementById("js-liter-input").value;
-                    let fuelType = document.getElementById("js-fuel-select").value;
-                    
-                    let emissionMultiplier = 0;
-
-                    switch(fuelType)
-                    {
-                        case "Bensin":
-                            emissionMultiplier = gasolineMultiplier;
-                            break;
-                        
-                        case "Diesel":
-                            emissionMultiplier = dieselMultiplier;
-                            break;
-                        
-                        default:
-                            alert(`${fuelType} is not a recognized fuel type.`);
-                            return;
-                    }
-
-                    document.getElementById("js-co2-emission").innerText = `${(literAmount * emissionMultiplier).toFixed(4)}`
-                    
-                    let customPaymentValue = document.getElementById("js-money-input").value;
-                    
-                    if (customPaymentValue !== "")
-                    {
-                        let finalAmount = Math.round(parseFloat(customPaymentValue) * 100) / 100;
-                        document.getElementById("js-total-amount").innerText = finalAmount;
-                        let form = document.getElementById("js-payment-form");
-                        form.action = `https://wt-a1a4d75d2e7f5a03df41a2e03b3cd9d7-0.sandbox.auth0-extend.com/stripe-payment?amount=${finalAmount * 100}&description=custom`;
-                    }
-                    else
-                    {
-                        let finalAmount = 0;
-
-                        if (literAmount === "") 
-                        { 
-                            document.getElementById("js-total-amount").innerText = finalAmount;
-                            return;
-                        }
-
-                        /*  Compensation fee
-                        ================================================== */
-                        finalAmount = literAmount * emissionMultiplier;     // Amount of co2 emissions in tonnes
-                        finalAmount *= 1000;                                // Amount of co2 in kg
-                        finalAmount /= yearlyTreeCo2Consumption;            // Amount of trees that need to be planted to offset the carbon emissions.
-                        finalAmount *= dollarToSek;                         // Amount of SEK required to buy those trees
-                        finalAmount = Math.ceil(finalAmount * 100) / 100;   // Ceil to the 2nd decimal
-
-                        /*  Service fee
-                        ================================================== */
-                        finalAmount /= 0.9;                                 // Add 10% service fee
-
-                        /*  Stripe fee
-                        ================================================== */
-                        finalAmount += 1.8;                                 // Add 1.8kr
-                        finalAmount /= 0.986;                               // Add 1.4%
-                        finalAmount = Math.ceil(finalAmount * 100) / 100;   // Ceil to the 2nd decimal
-                        
-                        document.getElementById("js-total-amount").innerText = finalAmount;
-                        let form = document.getElementById("js-payment-form");
-                        form.action = `https://wt-a1a4d75d2e7f5a03df41a2e03b3cd9d7-0.sandbox.auth0-extend.com/stripe-payment?amount=${finalAmount * 100}&description=${literAmount}+liter+${fuelType}`;
-                    }
-                }
-            </script>
+        <div class="content-wrapper">
+            <div class="page-banner compensate">
+                <h2>Klimatkompensera</h2>
+            </div>
             
-            <!-- TODO: PROPER STYLING -->
-            <span>Kompensera för en tankning<br /><br /></span>
+            <div class="page-ribbon"><b>Hur mycket har du tankat?</b></div>
 
-            <form>
-                <input id="js-liter-input" type="number" oninput="UpdateTotal()"></input>
-                <label for="js-liter-input">Liter</label>
-                <select id="js-fuel-select" oninput="UpdateTotal()">
-                    <option>Bensin</option>
-                    <option>Diesel</option>
-                </select>
-            </form>
+            <script src="js/klimatkompensera.js" async></script>
+
+            <div class="custom-donation-prompt" style="background-color: #e7acac">
+                OBS: Under konstruktion.
+            </div>
+
+            <div class="fuel-input-form">
+                <div class="fuel-amount-input">
+                    <input id="js-liter-input" type="number" step="0.01" oninput="UpdateTotal()"></input>
+                    <input type="text" value="liter" disabled>
+                </div>
+
+                <div class="fuel-type-input">
+                    <div id="js-gasoline-button" class="fuel-type-button toggled" onclick="ToggleFuelType(this)">
+                        <h3>B</h3>
+                        <div><b>Bensin</b></div>
+                    </div>
+    
+                    <div id="js-diesel-button" class="fuel-type-button" onclick="ToggleFuelType(this)">
+                        <h3>D</h3>
+                        <div><b>Diesel</b></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="custom-donation-prompt">
+                Klicka här för att istället kompensera <br />för en valfri summa pengar
+            </div>
+
+            <!-- TODO: Change classes and make it pop when clicking the thing above -->
+            <div class="fuel-amount-input">
+                <input id="js-money-input" type="number" step="0.01" oninput="UpdateTotal()"></input>
+                <input type="text" value="SEK" disabled>
+            </div>
+
+            <div class="page-ribbon"><b>Beräkning</b></div>
+
+            x liter [bensin/diesel] motsvarar x ton koldioxidutsläpp.
+            <br />klimatkompensationen kostar x kronor.
+            <br />detta skulle plantera x träd.
+
+            <!-- TODO: PROPER STYLING -->
+            <br /> <br />
             <h5><span id="js-co2-emission">0.0000</span> ton koldioxid</h5>
-
-            <!-- TODO: PROPER STYLING -->
-            <br /> <br />
-            <em>eller</em>
-            <br /> <br />
-
-            <span>Kompensera valfritt belopp<br /><br /></span>
-            <form>
-                <input id="js-money-input" type="number" oninput="UpdateTotal()"></input>
-                <label for="js-literInput">SEK</label>
-            </form>
-
-            <!-- TODO: PROPER STYLING -->
-            <br /> <br />
 
             <h3>Betala <span id="js-total-amount">0</span> kr</h3>
             <form action="" method="POST" id="js-payment-form">
-            <script
-                src="https://checkout.stripe.com/checkout.js" class="stripe-button" id="js-payment-script"
-                data-key="pk_test_bG7vG8DfCvej8dpMZMByDgPZ"
-                data-amount="0"
-                data-name="Klimatkompensation"
-                data-description="Klimatbil UF"
-                data-image="https://preview.ibb.co/iXbS7f/klimatbil-uf-logo.png"
-                data-locale="sv_SE"
-                data-label="Betala med kort"
-                data-currency="sek">
-            </script>
+                <script
+                    src="https://checkout.stripe.com/checkout.js" class="stripe-button" id="js-payment-script"
+                    data-key="pk_test_bG7vG8DfCvej8dpMZMByDgPZ"
+                    data-amount="0"
+                    data-name="Klimatkompensation"
+                    data-description="Klimatbil UF"
+                    data-image="https://preview.ibb.co/iXbS7f/klimatbil-uf-logo.png"
+                    data-locale="sv_SE"
+                    data-label="Betala med kort"
+                    data-currency="sek">
+                </script>
             </form>
+
+            <button class="compensate-button" onclick="SetWindowLocationTo('')">
+                <a href="">Kompensera</a>
+            </button>
         </div>
     </div>
 

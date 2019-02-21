@@ -10,19 +10,20 @@ function SetWindowLocationTo(newLocation)
     window.location.href = newLocation;
 }
 
+let navBar = document.getElementById("js-nav-bar");
+let overlapBackground = document.getElementById("js-overlap-background");
+let overlapHide = document.getElementById("js-overlap-hide");
+let hamburger = document.getElementById("js-nav-hamburger");
+
 function ToggleNavBar()
 {
-    let navBar = document.getElementById("js-nav-bar");
     navBar.classList.toggle("nav-bar-active");
     navBar.classList.toggle("nav-bar-inactive");
 
-    let overlapBackground = document.getElementById("js-overlap-background");
     overlapBackground.classList.toggle("half-opaque-background");
     overlapBackground.classList.toggle("transparent-background");
 
-    let overlapHide = document.getElementById("js-overlap-hide");
     overlapHide.classList.toggle("hidden");
 
-    let hamburger = document.getElementById("js-nav-hamburger");
     hamburger.classList.toggle("close");
 }
