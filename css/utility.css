@@ -199,6 +199,45 @@
 }
 
 
+/*  Dropdown
+================================================== */
+.dropdown
+{
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    background-color: #c5c5c5;
+}
+
+.dropdown-toggle
+{
+    text-align: center;
+    font-size: 1.1rem;
+    padding: 0.8em;
+    display: flex;
+    justify-content: space-around;
+}
+
+.dropdown-toggle:hover
+{
+    cursor: pointer;
+    background-color: #999999;
+}
+
+.dropdown-arrow
+{
+    transition-property: all; 
+    transition-duration: 0.5s;
+}
+
+.dropdown-content
+{
+    border-top: #444444 1px solid;
+}
+
+
 /*  Page banner
 ================================================== */
 .page-banner
@@ -293,7 +332,8 @@
     align-items: center;
 }
 
-.fuel-amount-input input
+.fuel-amount-input input,
+.custom-donation-input input
 {
     -webkit-appearance: none;
     height: 50%;
@@ -305,7 +345,8 @@
     outline: none;
 }
 
-.fuel-amount-input input[type="number"]
+.fuel-amount-input input[type="number"],
+.custom-donation-input input[type="number"]
 {
     width: 40%;
     padding-left: 0.2em;
@@ -314,7 +355,8 @@
 }
 
 /* Unit label */
-.fuel-amount-input input[type="text"]
+.fuel-amount-input input[type="text"],
+.custom-donation-input input[type="text"]
 {
     width: 30%;
     padding-right: 0.3em;
@@ -322,6 +364,16 @@
     border-left: 0px;
     margin: 0 0 0 -7px;
     text-align: right;
+}
+
+.custom-donation-input
+{
+    height: 70px;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .fuel-type-input
@@ -344,6 +396,7 @@
 .fuel-type-button:hover
 {
     background-color: rgb(160, 160, 160);
+    cursor: pointer;
 }
 
 .fuel-type-button.toggled
@@ -361,14 +414,4 @@
 .fuel-type-button div
 {
     color: #444444;
-}
-
-.custom-donation-prompt
-{
-    text-align: center;
-    font-size: 1.1rem;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    padding: 0.8em;
-    background-color: #c5c5c5;
 }
