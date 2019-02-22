@@ -26,4 +26,20 @@ function ToggleNavBar()
     overlapHide.classList.toggle("hidden");
 
     hamburger.classList.toggle("close");
+
+    // Disable scrolling when nav bar is open
+    document.querySelector("body").style.overflowY = hamburger.classList.contains("close")
+    ? "hidden"
+    : "visible";
+}
+
+function ToggleDropdown(dropdownElement)
+{
+    let dropdownContent = dropdownElement.querySelector(".dropdown-content");
+    dropdownContent.classList.toggle("hidden");
+    
+    let isHidden = dropdownContent.classList.contains("hidden");
+
+    dropdownElement.querySelector(".dropdown-arrow path")
+        .setAttribute("transform", `rotate(${isHidden ? 0 : 180}, 5, 5)`)
 }
