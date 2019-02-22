@@ -26,4 +26,9 @@ function ToggleNavBar()
     overlapHide.classList.toggle("hidden");
 
     hamburger.classList.toggle("close");
+
+    // Disable scrolling when nav bar is open
+    document.querySelector("body").style.overflow = hamburger.classList.contains("close")
+    ? "hidden"
+    : "visible";
 }
