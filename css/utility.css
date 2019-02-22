@@ -7,7 +7,7 @@
 
 .content-wrapper
 {
-    margin-top: 15vh;
+    margin-top: 15vh; /* Leave for now */
     width: 100%;
 }
 
@@ -23,7 +23,7 @@
     display: flex;
     box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.1);
     z-index: 10;
-    height: 15vh;
+    height: 15vh; /* Leave for now */
 }
 
 .top-bar-logo
@@ -37,15 +37,15 @@
 
 .top-bar-logo img
 {
-    padding: 15px;
-    width: 64px;
-    height: 64px;
+    padding: 1.5rem;
+    width: 6.4rem;
+    height: 6.4rem;
     cursor: pointer;
 }
 
 .top-bar-logo h1
 {
-    font-size: 3em;
+    font-size: 3rem;
     margin-left: 0;
     align-self: center;
     cursor: pointer;
@@ -55,12 +55,10 @@
 {
     height: 100%;
     flex-basis: 30%;
-    font-size: 3em;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .hamburger-line
@@ -114,6 +112,7 @@
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     z-index: 5;
+    height: 33.6rem;
 }
 
 .nav-bar ul
@@ -126,7 +125,7 @@
     /* On it's way in */
     transition-duration: 0.25s;
     transition-timing-function: ease-out;
-    top: 15vh;
+    top: 15vh; /* Leave for now */
 }
 
 .nav-bar-inactive
@@ -134,12 +133,12 @@
     /* On it's way out */
     transition-duration: 0.2s;
     transition-timing-function: ease-in;
-    top: -362px;
+    top: -33.6rem;
 }
 
 .nav-link
 {
-    font-size: 3em;
+    font-size: 3rem;
     padding-top: 0.8em;
     padding-bottom: 0.8em;
     background-color: #f5f5f5;
@@ -190,13 +189,13 @@
 .page-ribbon
 {
     display: flex;
+    font-size: 1.5rem;
+    height: 2em;
     background-color: #85C040;
-    height: 6vh;
     color: #f5f5f5;
     text-shadow: 0 0 2px #000000;
-    font-size: 1.6em;
     align-items: center;
-    padding-left: 5vw;
+    padding-left: 1em;
 }
 
 
@@ -205,7 +204,7 @@
 .page-banner
 {
     width: 100%;
-    height: 30vh;
+    height: 19rem;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -214,7 +213,7 @@
 .page-banner h2
 {
     position: relative;
-    bottom: -23vh;
+    top: 14rem;
 }
 
 .page-banner.compensate
@@ -238,7 +237,6 @@
 {
     text-align: center;
     padding-top: 45vh;
-    font-size: 1.1em;
 }
 
 
@@ -261,7 +259,7 @@
 {
     color: #f5f5f5;
     font-family: 'Roboto', sans-serif;
-    font-size: 3em;
+    font-size: 3rem;
     font-weight: 700;
     text-decoration: none;
     text-shadow: 0 0 6px #303030;
@@ -279,8 +277,8 @@
 {
     display: flex;
     background-color: #f5f5f5;
-    height: 15vh;
-    font-size: 1.5em;
+    font-size: 1.5rem;
+    height: 6em;
     align-items: center;
     justify-content: space-around;
 }
@@ -310,7 +308,7 @@
 .fuel-amount-input input[type="number"]
 {
     width: 40%;
-    padding-left: 2vw;
+    padding-left: 0.2em;
     border-right: 0px;
     z-index: 1; /* Place over unit input field */
 }
@@ -319,8 +317,8 @@
 .fuel-amount-input input[type="text"]
 {
     width: 30%;
-    padding-right: 3vw;
-    padding-left: 3vw;
+    padding-right: 0.3em;
+    padding-left: 0.3em;
     border-left: 0px;
     margin: 0 0 0 -7px;
     text-align: right;
@@ -355,30 +353,22 @@
 
 .fuel-type-button h3
 {
-    margin-top: 2vh;
-    height: 5vh;
+    font-size: 2.5rem;
+    margin-top: 0.5em;
     color: #444444;
 }
 
 .fuel-type-button div
 {
-    margin-top: 1vh;
     color: #444444;
 }
 
 .custom-donation-prompt
 {
     text-align: center;
-    font-size: 1.1em;
-    margin-top: 3vh;
-    padding-top: 1.5vh;
-    padding-bottom: 1.5vh;
-    padding-left: 2vw;
-    padding-right: 2vw;
-    margin-bottom: 1.5vh;
+    font-size: 1.1rem;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 0.8em;
     background-color: #c5c5c5;
-    border-radius: 10px;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
 }

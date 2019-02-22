@@ -50,19 +50,24 @@
 
 /*  Sectioning elements
 ================================================== */
+html
+{
+    font-size: 62.5%; /* 1rem = 10px */
+}
+
 body
 {
     box-sizing: border-box;
     background-color: #f5f5f5; /*#ecfde0;*/
     font-family: 'Roboto', sans-serif;
-    font-size: 62.5%; /* 16px * 0.625 = 10px ---> 1em = 10px */
     overflow-x: hidden;
 }
 
 article,
 footer,
 header,
-nav
+nav,
+span
 {
     padding: 0;
 }
@@ -76,7 +81,7 @@ nav
 }
 
 /* Prevents divs and text from getting a highlight color on all devices */
-.noSelectionHighlight /* TODO: Rename */
+.noSelectionHighlight
 {
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
@@ -108,25 +113,25 @@ h1, h3, h4, h5, h6
 {
     color: #85C040;
     font-family: Exo, sans-serif;
-    margin: 0.25em 0;
+    margin: 0.25rem 0;
 }
 
 h2 
 {
+    font-size: 3rem;
     font-family: 'Roboto', sans-serif;
-    padding-left: 5vw;
-    padding-right: 5vw;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
     color: #e6e6e6;
     text-shadow: 0 0 20px #000000;
-    font-weight: bold; 
-    font-size: 3em;
+    font-weight: bold;
 }
 
-h1 { font-size: 4em;  }
-h3 { font-size: 2em;    }
-h4 { font-size: 1.5em;  }
-h5 { font-size: 1.25em; }
-h6 { font-size: 1em;    }
+h1 { font-size: 3rem;   }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem;   }
 
 
 /*  Lists
