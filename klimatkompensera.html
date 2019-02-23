@@ -99,14 +99,28 @@
                     </div>
                 </form>
 
-                <ul class="compensation-info">
-                    <li><span class="js-liter-amount">0.00</span>L <span class="js-active-fuel-type">bensin</span> motsvarar <span id="js-co2-emission">0.0000</span> ton koldioxidutsläpp, vilket</li>
-                    <li>motsvarar den årliga koldioxidupptagningen av <span class="js-tree-amount">0.0</span> träd.</li>
-                    <li>Att plantera <span class="js-tree-amount">0.0</span> träd kostar <span class="js-total-amount">0</span> kronor.</li>
-                </ul>
+                <div class="dropdown">
+                    <div class="dropdown-toggle" onclick="ToggleDropdown(this.parentElement)">
+                        <span>Information om kompensationen</span>
+                        <div class="dropdown-arrow">
+                            <svg height="9" width="10">
+                                <path transform="rotate(0, 5, 5)" d="M0 0 L10 0 L5 9 Z" fill="#444444" />
+                            </svg>
+                        </div>
+                    </div>
 
-                <div class="more-info-link">
-                    <a href="beräkningsmetodik.html" target="_blank">Mer om vår beräkningsmetodik &#11016;</a>
+                    <div class="dropdown-content hidden">
+                        <ul class="compensation-info">
+                            <li>Pengarna går till <a href="om-oss.html" target="_blank">vår samarbetspartner</a> som återplanterar skog i Amazonas regnskog.</li>
+                            <li><span class="js-liter-amount">0.00</span>L <span class="js-active-fuel-type">bensin</span> motsvarar <span id="js-co2-emission">0.0000</span> ton koldioxidutsläpp,
+                                 vilket motsvarar den årliga koldioxidupptagningen av <span class="js-tree-amount">0.0</span> träd.</li>
+                            <li>Att plantera <span class="js-tree-amount">0.0</span> träd kostar <span class="js-total-amount">0</span> kronor.</li>
+                        </ul>
+
+                        <div class="more-info-link">
+                            <a href="beräkningsmetodik.html" target="_blank">Mer om vår beräkningsmetodik</a> <!-- Todo: replace with svg path or icon -->
+                        </div>
+                    </div>
                 </div>
 
                 <div class="dropdown">
