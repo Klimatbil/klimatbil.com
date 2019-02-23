@@ -219,16 +219,18 @@
     justify-content: space-around;
 }
 
-.dropdown-toggle:hover
+/* Mostly confusing for mobile users */
+/* .dropdown-toggle:hover
 {
     cursor: pointer;
     background-color: rgb(160, 160, 160);
-}
+} */
 
-.dropdown-arrow
+.dropdown-arrow path
 {
     transition-property: all;
-    transition-duration: 0.5s;
+    transition-duration: 0.25s;
+    transition-timing-function: ease;
 }
 
 
