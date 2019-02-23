@@ -7,7 +7,7 @@
 
 .content-wrapper
 {
-    margin-top: 15vh; /* Leave for now */
+    margin-top: 15vh;
     width: 100%;
 }
 
@@ -23,7 +23,7 @@
     display: flex;
     box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.1);
     z-index: 10;
-    height: 15vh; /* Leave for now */
+    height: 15vh;
 }
 
 .top-bar-logo
@@ -125,7 +125,7 @@
     /* On it's way in */
     transition-duration: 0.25s;
     transition-timing-function: ease-out;
-    top: 15vh; /* Leave for now */
+    top: 15vh;
 }
 
 .nav-bar-inactive
@@ -204,11 +204,10 @@
 .dropdown
 {
     margin-top: 1em;
-    margin-bottom: 1em;
     margin-left: auto;
     margin-right: auto;
     width: 80%;
-    background-color: #c5c5c5;
+    background-color: rgb(220, 220, 220);
 }
 
 .dropdown-toggle
@@ -223,18 +222,13 @@
 .dropdown-toggle:hover
 {
     cursor: pointer;
-    background-color: #999999;
+    background-color: rgb(160, 160, 160);
 }
 
 .dropdown-arrow
 {
-    transition-property: all; 
+    transition-property: all;
     transition-duration: 0.5s;
-}
-
-.dropdown-content
-{
-    border-top: #444444 1px solid;
 }
 
 
@@ -243,7 +237,7 @@
 .page-banner
 {
     width: 100%;
-    height: 19rem;
+    height: 12rem;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -252,7 +246,7 @@
 .page-banner h2
 {
     position: relative;
-    top: 14rem;
+    top: 8rem;
 }
 
 .page-banner.compensate
@@ -292,6 +286,7 @@
     width: 100%;
     height: 15vh;
     box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.1);
+    text-align: center;
 }
 
 .compensate-button a
@@ -302,6 +297,8 @@
     font-weight: 700;
     text-decoration: none;
     text-shadow: 0 0 6px #303030;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
 }
 
 .compensate-button:hover
@@ -414,4 +411,41 @@
 .fuel-type-button div
 {
     color: #444444;
+}
+
+.compensation-info
+{
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 1em;
+}
+
+.compensation-info li
+{
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+.compensation-info li:nth-child(odd)
+{
+    background-color: rgb(213, 231, 191);
+}
+
+.more-info-link
+{
+    text-align: right;
+    font-size: 1.1rem;
+    margin-right: 1em;
+    margin-bottom: 2em;
+}
+
+.more-info-link a
+{
+    padding: 0.5em; 
+    background-color: rgb(220, 220, 220);
+}
+
+.more-info-link a:hover
+{
+    background-color: rgb(160, 160, 160);
 }
