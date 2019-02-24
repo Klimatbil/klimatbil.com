@@ -15,24 +15,25 @@ function UpdateTotal()
     const gasolineMultiplier = 0.00234769703; // converts liters of gasoline to co2 emission in tonnes
     const dieselMultiplier = 0.0026892715; // converts liters of diesel to co2 emission in tonnes
     
-    let literAmount = document.getElementById("js-liter-input").value;
-    SetText(".js-liter-amount", (literAmount * 1).toFixed(2));
-    
-    let emissionMultiplier = usingGasoline ? gasolineMultiplier : dieselMultiplier;
-    SetText("#js-co2-emission", (literAmount * emissionMultiplier).toFixed(4));
-
     let customPaymentValue = document.getElementById("js-money-input").value;
 
     if (customPaymentValue !== "")
     {
         let finalAmount = Math.round(parseFloat(customPaymentValue) * 100) / 100;
         SetText("#js-custom-donation-amount", finalAmount.toFixed(2));
+
         let form = document.getElementById("js-payment-form");
         form.action = `https://wt-a1a4d75d2e7f5a03df41a2e03b3cd9d7-0.sandbox.auth0-extend.com/stripe-payment?amount=${finalAmount * 100}&description=custom`;
     }
     else
     {
         let finalAmount = 0;
+
+        let literAmount = document.getElementById("js-liter-input").value;
+        SetText(".js-liter-amount", (literAmount * 1).toFixed(2));
+
+        let emissionMultiplier = usingGasoline ? gasolineMultiplier : dieselMultiplier;
+        SetText("#js-co2-emission", (literAmount * emissionMultiplier).toFixed(4));
 
         if (literAmount === "" || parseFloat(literAmount) === 0) 
         { 
@@ -119,9 +120,25 @@ function ToggleFuelType(fuelTypeButton)
 }
 
 /**
- * 
+ * Clears the value in the custom payment input and updates total
  */
-function CustomPaymentInput()
+function OnLiterAmountInput()
 {
+    document.getElementById('js-money-input').value = '';
+    UpdateTotal();
+}
 
+/**
+ * Clears the information from the liter amount and updates total
+ */
+function OnCustomPaymentInput()
+{
+    /* Reset other values */
+    document.getElementById("js-liter-input").value = "";
+    SetText(".js-liter-amount", (0).toFixed(2));
+    SetText("#js-co2-emission", (0).toFixed(4));
+    SetText(".js-tree-amount", "0.0");
+    SetText(".js-total-amount", 0);
+
+    UpdateTotal();
 }
