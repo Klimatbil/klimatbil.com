@@ -210,6 +210,7 @@
 .dropdown
 {
     margin-top: 1em;
+    margin-bottom: 1em;
     margin-left: auto;
     margin-right: auto;
     width: 90%;
@@ -267,22 +268,26 @@
 ================================================== */
 .landing-container
 {
-    
+    min-height: 45rem;
 }
 
 .landing-background
 {
+    position: absolute;
+    height: 45rem;
+    width: 100%;
+    z-index: -1;
+
     background-image: url("../img/landing-page.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 45rem;
 }
 
-.landing-text
+.landing-container h2
 {
     text-align: center;
-    padding-top: 15rem;
+    padding-top: 20rem;
 }
 
 
@@ -290,33 +295,37 @@
 ================================================== */
 .compensate-button
 {
-    position: -webkit-sticky;
-    position: sticky; 
-    top: 9.6rem; 
-    background-color: rgb(126, 190, 52);
+    background-image: linear-gradient(rgb(200, 255, 100), rgb(100, 150, 25));
     border: none;
     cursor: pointer;
-    width: 100%;
-    height: 9.6rem;
     box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.1);
+    margin: auto;
     text-align: center;
-}
-
-.compensate-button a
-{
+    display: block;
     color: #f5f5f5;
     font-family: 'Roboto', sans-serif;
-    font-size: 3rem;
     font-weight: 700;
-    text-decoration: none;
     text-shadow: 0 0 6px #303030;
-    padding-left: 0.3em;
-    padding-right: 0.3em;
+    padding: 0.75em 2.5em;
+    max-width: 90%;
 }
 
-.compensate-button:hover
+.compensate-button.big
 {
-    background-color: rgb(70, 131, 0);
+    font-size: 3rem;
+}
+
+.compensate-button.small
+{
+    margin-top: 1em;
+    font-size: 2rem;
+}
+
+.compensate-button:hover,
+.compensate-button:focus
+{
+    background-image: linear-gradient(rgb(150, 200, 50), rgb(65, 100, 15));
+    box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.6);
 }
 
 
@@ -415,8 +424,10 @@
     background-color: #85C040;
 }
 
-.fuel-type-button h3
+.fuel-type-button label
 {
+    display: inline-block;
+    font-family: Exo, sans-serif;
     font-size: 2.5rem;
     margin-top: 0.5em;
     color: #444444;

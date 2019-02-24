@@ -71,7 +71,7 @@
                 <h2>Klimatkompensera</h2>
             </div>
             
-            <div class="page-ribbon"><b>Hur mycket har du tankat?</b></div>
+            <div class="page-ribbon"><h3>Hur mycket har du tankat?</h3></div>
 
             <form class="fuel-input-form" onsubmit="document.getElementById('js-checkout-button').focus(); return false;">
                 <div class="fuel-amount-input">
@@ -85,12 +85,12 @@
 
                 <div class="fuel-type-input">
                     <div id="js-gasoline-button" class="fuel-type-button toggled" onclick="ToggleFuelType(this)">
-                        <h3>B</h3>
+                        <label>B</label>
                         <div><b>Bensin</b></div>
                     </div>
     
                     <div id="js-diesel-button" class="fuel-type-button" onclick="ToggleFuelType(this)">
-                        <h3>D</h3>
+                        <label>D</label>
                         <div><b>Diesel</b></div>
                     </div>
                 </div>
@@ -157,8 +157,8 @@
                 <!-- Loaded here because it removes the default stripe button on startup -->
                 <script src="js/klimatkompensera.js"></script>
 
-                <button type="submit" id="js-checkout-button" class="compensate-button">
-                    <a>Bekräfta kompensationen för <span id="js-custom-donation-amount" class="js-total-amount">0</span>kr</a>
+                <button type="submit" id="js-checkout-button" class="compensate-button small">
+                    Kompensera för <span id="js-custom-donation-amount" class="js-total-amount">0</span>kr
                 </button>
             </form>
         </div>
