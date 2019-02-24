@@ -105,7 +105,7 @@
 {
     position: fixed;
     background-color: #f5f5f5;
-    transition-property: all;
+    transition-property: transform;
     text-align: center;
     color: #505050;
     width: 100%;
@@ -125,15 +125,21 @@
     /* On it's way in */
     transition-duration: 0.25s;
     transition-timing-function: ease-out;
-    top: 9.6rem;
+
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    will-change: transform;
 }
 
 .nav-bar-inactive
 {
     /* On it's way out */
-    transition-duration: 0.2s;
+    transition-duration: 0.20s;
     transition-timing-function: ease-in;
-    top: -33.6rem;
+
+    -webkit-transform: translateY(-33.6rem);
+    transform: translateY(-33.6rem);
+    will-change: transform;
 }
 
 .nav-link
