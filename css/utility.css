@@ -7,7 +7,7 @@
 
 .content-wrapper
 {
-    margin-top: 15vh;
+    margin-top: 9.6rem;
     width: 100%;
 }
 
@@ -23,7 +23,7 @@
     display: flex;
     box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.1);
     z-index: 10;
-    height: 15vh;
+    height: 9.6rem;
 }
 
 .top-bar-logo
@@ -105,7 +105,7 @@
 {
     position: fixed;
     background-color: #f5f5f5;
-    transition-property: all;
+    transition-property: transform;
     text-align: center;
     color: #505050;
     width: 100%;
@@ -125,15 +125,21 @@
     /* On it's way in */
     transition-duration: 0.25s;
     transition-timing-function: ease-out;
-    top: 15vh;
+
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    will-change: transform;
 }
 
 .nav-bar-inactive
 {
     /* On it's way out */
-    transition-duration: 0.2s;
+    transition-duration: 0.20s;
     transition-timing-function: ease-in;
-    top: -33.6rem;
+
+    -webkit-transform: translateY(-33.6rem);
+    transform: translateY(-33.6rem);
+    will-change: transform;
 }
 
 .nav-link
@@ -204,6 +210,7 @@
 .dropdown
 {
     margin-top: 1em;
+    margin-bottom: 1em;
     margin-left: auto;
     margin-right: auto;
     width: 90%;
@@ -259,19 +266,28 @@
 
 /*  Landing page
 ================================================== */
+.landing-container
+{
+    min-height: 45rem;
+}
+
 .landing-background
 {
+    position: absolute;
+    height: 45rem;
+    width: 100%;
+    z-index: -1;
+
     background-image: url("../img/landing-page.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 70vh;
 }
 
-.landing-text
+.landing-container h2
 {
     text-align: center;
-    padding-top: 45vh;
+    padding-top: 20rem;
 }
 
 
@@ -279,33 +295,37 @@
 ================================================== */
 .compensate-button
 {
-    position: -webkit-sticky;
-    position: sticky; 
-    top: 15vh; 
-    background-color: rgb(126, 190, 52);
+    background-image: linear-gradient(rgb(200, 255, 100), rgb(100, 150, 25));
     border: none;
     cursor: pointer;
-    width: 100%;
-    height: 15vh;
     box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.1);
+    margin: auto;
     text-align: center;
-}
-
-.compensate-button a
-{
+    display: block;
     color: #f5f5f5;
     font-family: 'Roboto', sans-serif;
-    font-size: 3rem;
     font-weight: 700;
-    text-decoration: none;
     text-shadow: 0 0 6px #303030;
-    padding-left: 0.3em;
-    padding-right: 0.3em;
+    padding: 0.75em 2.5em;
+    max-width: 90%;
 }
 
-.compensate-button:hover
+.compensate-button.big
 {
-    background-color: rgb(70, 131, 0);
+    font-size: 3rem;
+}
+
+.compensate-button.small
+{
+    margin-top: 1em;
+    font-size: 2rem;
+}
+
+.compensate-button:hover,
+.compensate-button:focus
+{
+    background-image: linear-gradient(rgb(150, 200, 50), rgb(65, 100, 15));
+    box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.6);
 }
 
 
@@ -316,9 +336,10 @@
     display: flex;
     background-color: #f5f5f5;
     font-size: 1.5rem;
-    height: 8em;
+    height: 6em;
     align-items: center;
     justify-content: space-around;
+    margin-top: 0.6666em;
 }
 
 .fuel-amount-input
@@ -377,7 +398,7 @@
 
 .fuel-type-input
 {
-    height: 80%;
+    height: 100%;
     width: 50vw;
     display: flex;
     justify-content: space-around;
@@ -403,8 +424,10 @@
     background-color: #85C040;
 }
 
-.fuel-type-button h3
+.fuel-type-button label
 {
+    display: inline-block;
+    font-family: Exo, sans-serif;
     font-size: 2.5rem;
     margin-top: 0.5em;
     color: #444444;

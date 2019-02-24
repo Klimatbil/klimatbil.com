@@ -67,79 +67,76 @@
         <!-- Page content
         ================================================== -->
         <div class="content-wrapper">
-            <!-- This div allows the compensate button to fit perfectly to the bottom of the page -->
-            <div style="min-height: 65vh; margin-bottom: 2vh">
-                <div class="page-banner compensate">
-                    <h2>Klimatkompensera</h2>
+            <div class="page-banner compensate">
+                <h2>Klimatkompensera</h2>
+            </div>
+            
+            <div class="page-ribbon"><h3>Hur mycket har du tankat?</h3></div>
+
+            <form class="fuel-input-form" onsubmit="document.getElementById('js-checkout-button').focus(); return false;">
+                <div class="fuel-amount-input">
+                    <input id="js-liter-input" type="number" step="0.01" oninput="
+                        if(value.length > 5){value = value.slice(0, 5)} /* Ensures user can't input more than 5 characters */
+                        UpdateTotal()" 
+                    />
+
+                    <input type="text" value="liter" readonly="readonly" onclick="document.getElementById('js-liter-input').focus();" />
                 </div>
-                
-                <div class="page-ribbon"><b>Hur mycket har du tankat?</b></div>
 
-                <form class="fuel-input-form" onsubmit="document.getElementById('js-checkout-button').focus(); return false;">
-                    <div class="fuel-amount-input">
-                        <input id="js-liter-input" type="number" step="0.01" oninput="
-                            if(value.length > 5){value = value.slice(0, 5)} /* Ensures user can't input more than 5 characters */
-                            UpdateTotal()" 
-                        />
-
-                        <input type="text" value="liter" readonly="readonly" onclick="document.getElementById('js-liter-input').focus();" />
+                <div class="fuel-type-input">
+                    <div id="js-gasoline-button" class="fuel-type-button toggled" onclick="ToggleFuelType(this)">
+                        <label>B</label>
+                        <div><b>Bensin</b></div>
                     </div>
-
-                    <div class="fuel-type-input">
-                        <div id="js-gasoline-button" class="fuel-type-button toggled" onclick="ToggleFuelType(this)">
-                            <h3>B</h3>
-                            <div><b>Bensin</b></div>
-                        </div>
-        
-                        <div id="js-diesel-button" class="fuel-type-button" onclick="ToggleFuelType(this)">
-                            <h3>D</h3>
-                            <div><b>Diesel</b></div>
-                        </div>
-                    </div>
-
-                    <!-- Makes it possible to submit the form by pressing enter on the input -->
-                    <input type="submit" style="position: absolute; left: -9999px"/>
-                </form>
-
-                <div class="dropdown">
-                    <div class="dropdown-toggle" onclick="ToggleDropdown(this.parentElement)">
-                        <span>Information om kompensationen</span>
-                        <div class="dropdown-arrow">
-                            <svg height="10" width="10">
-                                <path transform="rotate(0, 5, 5)" d="M0 0 L10 0 L5 10 Z" fill="#444444" />
-                            </svg>
-                        </div>
-                    </div>
-
-                    <div class="dropdown-content hidden">
-                        <ul class="compensation-info">
-                            <li>Pengarna går till <a href="om-oss.html" target="_blank">vår samarbetspartner</a> som återplanterar träd i Amazonas regnskog.</li>
-                            <li><span class="js-liter-amount">0.00</span>L <span class="js-active-fuel-type">bensin</span> motsvarar <span id="js-co2-emission">0.0000</span> ton koldioxidutsläpp,
-                                 vilket motsvarar den årliga koldioxidupptagningen av <span class="js-tree-amount">0.0</span> träd.</li>
-                            <li>Att plantera <span class="js-tree-amount">0.0</span> träd kostar <span class="js-total-amount">0</span> kronor.</li>
-                        </ul>
-
-                        <div class="more-info-link">
-                            <a href="beräkningsmetodik.html" target="_blank">Mer om vår beräkningsmetodik</a> <!-- Todo: replace with svg path or icon -->
-                        </div>
+    
+                    <div id="js-diesel-button" class="fuel-type-button" onclick="ToggleFuelType(this)">
+                        <label>D</label>
+                        <div><b>Diesel</b></div>
                     </div>
                 </div>
 
-                <div class="dropdown">
-                    <div class="dropdown-toggle" onclick="ToggleDropdown(this.parentElement)">
-                        <span>Kompensera för en valfri summa istället?</span>
-                        <div class="dropdown-arrow">
-                            <svg height="10" width="10">
-                                <path transform="rotate(0, 5, 5)" d="M0 0 L10 0 L5 10 Z" fill="#444444" />
-                            </svg>
-                        </div>
-                    </div>
+                <!-- Makes it possible to submit the form by pressing enter on the fuel input -->
+                <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;" tabindex="-1" />
+            </form>
 
-                    <div class="dropdown-content hidden">
-                        <div class="custom-donation-input">
-                            <input id="js-money-input" type="number" step="0.01" oninput="UpdateTotal()"></input>
-                            <input type="text" value="SEK" disabled>
-                        </div>
+            <div class="dropdown">
+                <div class="dropdown-toggle" onclick="ToggleDropdown(this.parentElement)">
+                    <span>Information om kompensationen</span>
+                    <div class="dropdown-arrow">
+                        <svg height="10" width="10">
+                            <path transform="rotate(0, 5, 5)" d="M0 0 L10 0 L5 10 Z" fill="#444444" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="dropdown-content hidden">
+                    <ul class="compensation-info">
+                        <li>Pengarna går till <a href="om-oss.html" target="_blank">vår samarbetspartner</a> som återplanterar träd i Amazonas regnskog.</li>
+                        <li><span class="js-liter-amount">0.00</span>L <span class="js-active-fuel-type">bensin</span> motsvarar <span id="js-co2-emission">0.0000</span> ton koldioxidutsläpp,
+                                vilket motsvarar den årliga koldioxidupptagningen av <span class="js-tree-amount">0.0</span> träd.</li>
+                        <li>Att plantera <span class="js-tree-amount">0.0</span> träd kostar <span class="js-total-amount">0</span> kronor.</li>
+                    </ul>
+
+                    <div class="more-info-link">
+                        <a href="beräkningsmetodik.html" target="_blank">Mer om vår beräkningsmetodik</a> <!-- Todo: replace with svg path or icon -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <div class="dropdown-toggle" onclick="ToggleDropdown(this.parentElement)">
+                    <span>Kompensera för en valfri summa istället?</span>
+                    <div class="dropdown-arrow">
+                        <svg height="10" width="10">
+                            <path transform="rotate(0, 5, 5)" d="M0 0 L10 0 L5 10 Z" fill="#444444" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="dropdown-content hidden">
+                    <div class="custom-donation-input">
+                        <input id="js-money-input" type="number" step="0.01" oninput="UpdateTotal()"></input>
+                        <input type="text" value="SEK" disabled>
                     </div>
                 </div>
             </div>
@@ -160,8 +157,8 @@
                 <!-- Loaded here because it removes the default stripe button on startup -->
                 <script src="js/klimatkompensera.js"></script>
 
-                <button type="submit" id="js-checkout-button" class="compensate-button" style="height: 18vh;">
-                    <a>Bekräfta kompensationen för <span id="js-custom-donation-amount" class="js-total-amount">0</span>kr</a>
+                <button type="submit" id="js-checkout-button" class="compensate-button small">
+                    Kompensera för <span id="js-custom-donation-amount" class="js-total-amount">0</span>kr
                 </button>
             </form>
         </div>
