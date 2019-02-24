@@ -295,10 +295,9 @@
 ================================================== */
 .compensate-button
 {
-    background-image: linear-gradient(rgb(200, 255, 100), rgb(100, 150, 25));
     border: none;
     cursor: pointer;
-    box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.1);
+    box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
     margin: auto;
     text-align: center;
     display: block;
@@ -312,11 +311,13 @@
 
 .compensate-button.big
 {
+    background-image: linear-gradient(rgb(200, 255, 100), rgb(100, 150, 25));
     font-size: 3rem;
 }
 
 .compensate-button.small
 {
+    background-image: linear-gradient(rgb(190, 240, 95), rgb(115, 170, 30));
     margin-top: 1em;
     font-size: 2rem;
 }
@@ -422,6 +423,7 @@
 .fuel-type-button.toggled
 {
     background-color: #85C040;
+    box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.2);
 }
 
 .fuel-type-button label
