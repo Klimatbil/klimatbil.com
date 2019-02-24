@@ -482,3 +482,15 @@
 {
     background-color: rgb(160, 160, 160);
 }
+
+.stripe-info
+{
+    text-align: center;
+    margin-top: 1em;
+}
+
+.stripe-info a
+{
+    color: blue;
+    text-decoration: underline;
+}
