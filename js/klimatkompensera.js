@@ -1,105 +1,157 @@
-/**
- * Removes the default button that is rendered by stripe.
- */
-function RemoveStripeDefaultButton()
-{
-    document.getElementsByClassName("stripe-button-el")[0].style.display = "none";
-}
+const stripeHandler = StripeCheckout.configure({
+    key: 'pk_test_bG7vG8DfCvej8dpMZMByDgPZ',
+    name: "Klimatkompensation",
+    description: "Klimatbil UF",
+    image: "https://preview.ibb.co/iXbS7f/klimatbil-uf-logo.png",
+    locale: "sv_SE",
+    label: "Betala med kort",
+    currency: "sek",
+    token: function(token) {
+        const amount = getTotalAmount()
+        if (!isValidAmount(amount)) return
 
-RemoveStripeDefaultButton();
+        fetch(`https:/wt-a1a4d75d2e7f5a03df41a2e03b3cd9d7-0.sandbox.auth0-extend.com/stripe-payment/stripe-payment?amount=${amount * 100}&description=${getDescription()}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            // Your server will need to be changed slightly to use body params and not the query params
+            // Also you will want to return if the request was successful or not instead of redirecting in the server.
+            body: JSON.stringify({
+                stripeToken: token.id,
+                stripeEmail: token.email,
+                amount: amount * 100,
+                description: getDescription()
+            })
+        }).then(() => {
+            // Need to check error status here to determine if the request was successful or not
+            window.location.href = '/tack.html'
+        }).catch(() => {
+            console.error('ERROR: Failed to POST payment')
+        })
+    }
+})
 
-let treeAmount = 0;
+// Conversion Constants
+const LITERS_GASOLINE_TO_CO2_TONNES = 0.00234769703
+const LITERS_DIESEL_TO_CO2_TONNES = 0.0026892715
+const YEARLY_TREE_CO2_CONSUMPTION_KILOGRAMS = 21.7724
+const DOLLAR_TO_SEK = 9.3
+const SERVICE_FEE_MULTIPLIER = 1.1
+const STRIPE_FEE_FLAT = 1.8
+const STRIPE_FEE_MULTIPLIER = 1.014
+
+// Elements
+const customAmountInputElement = document.getElementById("js-money-input");
+const literAmountInputElement = document.getElementById("js-liter-input");
+const fuelTypeInputElements = document.getElementsByClassName('fuel-type-button')
+const literAmountTextElements = document.getElementsByClassName('js-liter-amount')
+const treeAmountTextElements = document.getElementsByClassName('js-tree-amount')
+const emissionTextElement = document.getElementById('js-co2-emission')
+const totalAmountElements = document.getElementsByClassName('js-total-amount')
+const fuelTypeTextElements = document.getElementsByClassName('js-active-fuel-type')
+const customTotalAmountTextElement = document.getElementById('js-custom-donation-amount')
+const checkoutButtonElement = document.getElementById('js-checkout-button')
+
 let usingGasoline = true;
 
-function UpdateTotal()
-{
-    const gasolineMultiplier = 0.00234769703; // converts liters of gasoline to co2 emission in tonnes
-    const dieselMultiplier = 0.0026892715; // converts liters of diesel to co2 emission in tonnes
-    
-    let literAmount = document.getElementById("js-liter-input").value;
-    SetText(".js-liter-amount", (literAmount * 1).toFixed(2));
-    
-    let emissionMultiplier = usingGasoline ? gasolineMultiplier : dieselMultiplier;
-    SetText("#js-co2-emission", (literAmount * emissionMultiplier).toFixed(4));
+// Add Event Listeners
+literAmountInputElement.addEventListener('input', updateAllText)
+customAmountInputElement.addEventListener('input', updateTotalAmountText)
+checkoutButtonElement.addEventListener('click', () => {
+    stripeHandler.open({
+        amount: getTotalAmount()
+    })
+})
+Array.from(fuelTypeInputElements).forEach(element => {
+    element.addEventListener('click', ToggleFuelType)
+})
+ 
+function getTotalAmount() {
+    if (isCustomAmount()) return parseFloat(customAmountInputElement.value)
+    const treeAmount = getTreeAmount()
+    // There appears to be a step missing that converts trees to dollars unless it is assumed a tree is worth one dollar
+    // I also could have missed this step when I was refactoring
+    const amountBeforeFees = treeAmount * DOLLAR_TO_SEK
+    const amountWithServiceFee = amountBeforeFees * SERVICE_FEE_MULTIPLIER
+    const totalAmount = (amountWithServiceFee + STRIPE_FEE_FLAT) * STRIPE_FEE_MULTIPLIER
+    return Math.ceil(totalAmount * 100) / 100
+}
 
-    let customPaymentValue = document.getElementById("js-money-input").value;
+function isCustomAmount() {
+    return isValidAmount(parseFloat(customAmountInputElement.value))
+}
 
-    if (customPaymentValue !== "")
-    {
-        let finalAmount = Math.round(parseFloat(customPaymentValue) * 100) / 100;
-        SetText("#js-custom-donation-amount", finalAmount);
-        let form = document.getElementById("js-payment-form");
-        form.action = `https://wt-a1a4d75d2e7f5a03df41a2e03b3cd9d7-0.sandbox.auth0-extend.com/stripe-payment?amount=${finalAmount * 100}&description=custom`;
-    }
-    else
-    {
-        let finalAmount = 0;
+function isValidAmount(amount) {
+    return !isNaN(amount) && amount > 0
+}
 
-        if (literAmount === "" || parseFloat(literAmount) === 0) 
-        { 
-            SetText(".js-total-amount", finalAmount);
-            SetText(".js-tree-amount", "0.0");
-            return;
-        }
+function getDescription() {
+    if (isCustomAmount) return 'custom'
+    const literAmount = parseFloat(literAmountInputElement.value)
+    return `${literAmount}+liter+${getFuelType()}`
+}
 
-        finalAmount = CalculateFinalAmount(literAmount, emissionMultiplier);
-        
-        SetText(".js-total-amount", finalAmount);
-        let form = document.getElementById("js-payment-form");
+function getFuelType() {
+    return usingGasoline ? "bensin" : "diesel";
+}
 
-        let fuelType = usingGasoline ? "bensin" : "diesel";
+function getEmissionMultiplier() {
+    return usingGasoline ? LITERS_GASOLINE_TO_CO2_TONNES : LITERS_DIESEL_TO_CO2_TONNES
+}
 
-        form.action = `https://wt-a1a4d75d2e7f5a03df41a2e03b3cd9d7-0.sandbox.auth0-extend.com/stripe-payment?amount=${finalAmount * 100}&description=${literAmount}+liter+${fuelType}`;
+function getTreeAmount() {
+    const literAmount = parseFloat(literAmountInputElement.value)
+    const co2EmissionTonnes = literAmount * getEmissionMultiplier()
+    const co2EmissionKg = co2EmissionTonnes * 1000
+    return co2EmissionKg / YEARLY_TREE_CO2_CONSUMPTION_KILOGRAMS
+}
+
+function updateAllText() {
+    updateLiterText()
+    updateTreeText()
+    updateEmissionText()
+    updateTotalAmountText()
+    updateFuelTypeText()
+}
+
+function updateLiterText() {
+    const literAmount = parseFloat(literAmountInputElement.value).toFixed(2)
+    Array.from(literAmountTextElements).forEach(element => {
+        element.innerText = literAmount
+    })
+}
+
+function updateTreeText() {
+    const treeAmount = getTreeAmount().toFixed(1)
+    Array.from(treeAmountTextElements).forEach(element => {
+        element.innerText = treeAmount
+    })
+}
+
+function updateEmissionText() {
+    const literAmount = parseFloat(literAmountInputElement.value)
+    emissionTextElement.innerText = (literAmount * getEmissionMultiplier()).toFixed(4)
+}
+
+function updateTotalAmountText(customOnly = false) {
+    const amount = getTotalAmount()
+    if (!isValidAmount(amount)) amount = 0
+    if (customOnly) {
+        customTotalAmountTextElement.innerText = amount
+    } else {
+        Array.from(totalAmountElements).forEach(element => {
+            element.innerText = amount
+        })
     }
 }
 
-/**
- * Calculates the final amount with applied service and stripe fees.
- * @param {number} literAmount        - The amount of liters the user has fueled
- * @param {number} emissionMultiplier - The liters of fuel type => co2 emission multiplier
- * @returns {number} The final amount to pay
- */
-function CalculateFinalAmount(literAmount, emissionMultiplier)
-{
-    let result = 0;
-
-    const yearlyTreeCo2Consumption = 21.7724 // in kilograms
-    const dollarToSek = 9.3                  // value of 1 dollar in sek
-
-    /*  Compensation fee
-    ================================================== */
-    result = literAmount * emissionMultiplier;     // Amount of co2 emissions in tonnes
-    result *= 1000;                                // Amount of co2 in kg
-    result /= yearlyTreeCo2Consumption;            // Amount of trees that need to be planted to offset the carbon emissions.
-    SetText(".js-tree-amount", result.toFixed(1)); // Display this number on the page
-
-    result *= dollarToSek;                         // Amount of SEK required to buy those trees
-    result = Math.ceil(result * 100) / 100;        // Ceil to the 2nd decimal
-
-    /*  Service fee
-    ================================================== */
-    result /= 0.9;                                 // Add 10% service fee
-
-    /*  Stripe fee
-    ================================================== */
-    result += 1.8;                                 // Add 1.8kr
-    result /= 0.986;                               // Add 1.4%
-    result = Math.ceil(result * 100) / 100;        // Ceil to the 2nd decimal
-
-    return result;
-}
-
-/**
- * Finds all elements that matches a query and sets their innerText to the text
- * @param {string} query - The querySelector to find elements with
- * @param {string} text  - The text to set to the element's innerText 
- */
-function SetText(query, text)
-{
-    document.querySelectorAll(query).forEach((element) =>
-    {
-        element.innerText = text.toString();
-    });
+function updateFuelTypeText() {
+    const fuelType = getFuelType()
+    Array.from(fuelTypeTextElements).forEach(element => {
+        element.innerText = fuelType
+    })
 }
 
 /**
@@ -115,6 +167,5 @@ function ToggleFuelType(fuelTypeButton)
     document.getElementById("js-diesel-button").classList.toggle("toggled");
     usingGasoline = !usingGasoline;
 
-    SetText(".js-active-fuel-type", fuelTypeButton.children[1].innerText.toLowerCase());
-    UpdateTotal();
+    updateAllText()
 }
