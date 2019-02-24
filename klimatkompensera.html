@@ -136,7 +136,7 @@
                 <div class="dropdown-content hidden">
                     <div class="custom-donation-input">
                         <input id="js-money-input" type="number" step="0.01" oninput="UpdateTotal()"></input>
-                        <input type="text" value="SEK" disabled>
+                        <input type="text" value="SEK" readonly="readonly" onclick="document.getElementById('js-money-input').focus();">
                     </div>
                 </div>
             </div>
@@ -163,7 +163,7 @@
             </form>
 
             <div class="stripe-info">
-                Säker kortbetalning med <a href="https://stripe.com/se/customers" target="_blank">Stripe</a>
+                Säker kortbetalning med <a href="https://stripe.com/about" target="_blank">Stripe</a>
             </div>
         </div>
     </div>

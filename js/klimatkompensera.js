@@ -8,7 +8,6 @@ function RemoveStripeDefaultButton()
 
 RemoveStripeDefaultButton();
 
-let treeAmount = 0;
 let usingGasoline = true;
 
 function UpdateTotal()
@@ -27,7 +26,7 @@ function UpdateTotal()
     if (customPaymentValue !== "")
     {
         let finalAmount = Math.round(parseFloat(customPaymentValue) * 100) / 100;
-        SetText("#js-custom-donation-amount", finalAmount);
+        SetText("#js-custom-donation-amount", finalAmount.toFixed(2));
         let form = document.getElementById("js-payment-form");
         form.action = `https://wt-a1a4d75d2e7f5a03df41a2e03b3cd9d7-0.sandbox.auth0-extend.com/stripe-payment?amount=${finalAmount * 100}&description=custom`;
     }
@@ -104,7 +103,7 @@ function SetText(query, text)
 
 /**
  * Switches between using gasoline or diesel as fuel
- * @param {*} fuelTypeButton - The element that was clicked
+ * @param {Element} fuelTypeButton - The element that was clicked
  */
 function ToggleFuelType(fuelTypeButton)
 {
@@ -117,4 +116,12 @@ function ToggleFuelType(fuelTypeButton)
 
     SetText(".js-active-fuel-type", fuelTypeButton.children[1].innerText.toLowerCase());
     UpdateTotal();
+}
+
+/**
+ * 
+ */
+function CustomPaymentInput()
+{
+
 }
