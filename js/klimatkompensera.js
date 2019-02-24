@@ -9,6 +9,7 @@ function RemoveStripeDefaultButton()
 RemoveStripeDefaultButton();
 
 let usingGasoline = true;
+let finalAmount = 0;
 
 function UpdateTotal()
 {
@@ -19,7 +20,7 @@ function UpdateTotal()
 
     if (customPaymentValue !== "")
     {
-        let finalAmount = Math.round(parseFloat(customPaymentValue) * 100) / 100;
+        finalAmount = Math.round(parseFloat(customPaymentValue) * 100) / 100;
         SetText("#js-custom-donation-amount", finalAmount.toFixed(2));
 
         let form = document.getElementById("js-payment-form");
@@ -27,7 +28,7 @@ function UpdateTotal()
     }
     else
     {
-        let finalAmount = 0;
+        finalAmount = 0;
 
         let literAmount = document.getElementById("js-liter-input").value;
         SetText(".js-liter-amount", (literAmount * 1).toFixed(2));
@@ -117,6 +118,45 @@ function ToggleFuelType(fuelTypeButton)
 
     SetText(".js-active-fuel-type", fuelTypeButton.children[1].innerText.toLowerCase());
     UpdateTotal();
+}
+
+/**
+ * Performs form validation
+ * @returns {boolean} Whether the form was valid or not
+ */
+function FormIsValid()
+{
+    let isValid = true;
+    let errorMsg = "";
+
+    if (finalAmount < 10) 
+    {
+        errorMsg = "Kompensationen måste vara minst 10kr."
+        isValid = false;
+    }
+    else if (finalAmount > 1000)
+    {
+        errorMsg = "Kompensationen måste vara under 1000kr."
+        isValid = false;
+    }
+
+    let checkoutButton = document.getElementById("js-checkout-button");
+    let errorMsgElement = document.getElementById("js-invalid-form-message");
+
+    if (isValid === false)
+    {
+        checkoutButton.classList.add("invalid");
+
+        errorMsgElement.classList.remove("hidden");
+        errorMsgElement.innerText = errorMsg;
+    }
+    else
+    {
+        checkoutButton.classList.remove("invalid");
+        errorMsgElement.classList.add("hidden");
+    }
+
+    return isValid;
 }
 
 /**

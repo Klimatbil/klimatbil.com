@@ -123,7 +123,7 @@
             </div>
 
             <div class="dropdown">
-                <div class="dropdown-toggle" onclick="ToggleDropdown(this.parentElement); document.getElementById('js-money-input').value = ''; UpdateTotal();">
+                <div class="dropdown-toggle" onclick="ToggleDropdown(this.parentElement); UpdateTotal();">
                     <span>Kompensera för en valfri summa istället?</span>
                     <div class="dropdown-arrow">
                         <svg height="10" width="10">
@@ -143,6 +143,10 @@
                 </div>
             </div>
 
+            <div id="js-invalid-form-message" class="invalid-form-message hidden">
+                Kompensationen måste vara minst 10 kr.
+            </div>
+
             <form action="" method="POST" id="js-payment-form">
                 <script
                     src="https://checkout.stripe.com/checkout.js" class="stripe-button" id="js-payment-script"
@@ -159,7 +163,7 @@
                 <!-- Loaded here because it removes the default stripe button on startup -->
                 <script src="js/klimatkompensera.js"></script>
 
-                <button type="submit" id="js-checkout-button" class="compensate-button small">
+                <button onclick="return FormIsValid();" type="submit" id="js-checkout-button" class="compensate-button small">
                     Kompensera för <span id="js-custom-donation-amount" class="js-total-amount">0</span>kr
                 </button>
             </form>
