@@ -53,6 +53,7 @@
 html
 {
     font-size: 62.5%; /* 1rem = 10px */
+    scroll-behavior: smooth;
 }
 
 body
@@ -93,6 +94,13 @@ span
     outline: none; /* For chrome on android */
 }
 
+.anchor
+{
+    display: block;
+    position: relative;
+    top: -9.6rem; /* Offsets the anchors by the top bar position */
+    visibility: hidden;
+}
 
 /*  Anchor tags
 ================================================== */

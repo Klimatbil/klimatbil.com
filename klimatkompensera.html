@@ -133,13 +133,16 @@
                 </div>
 
                 <div class="dropdown-content hidden">
-                    <div class="custom-donation-input">
+                    <form class="custom-donation-input" onsubmit="document.getElementById('js-checkout-button').focus(); return false;">
                         <input id="js-money-input" type="number" step="0.01" oninput="
                             if(value.length > 6){value = value.slice(0, 6)} /* Ensures user can't input more than 6 characters */
                             OnCustomPaymentInput()" />
 
                         <input type="text" value="SEK" readonly="readonly" onclick="document.getElementById('js-money-input').focus();" />
-                    </div>
+                        
+                        <!-- Makes it possible to submit the form by pressing enter on the fuel input -->
+                        <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;" tabindex="-1" />
+                    </form>
                 </div>
             </div>
 
