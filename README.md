@@ -1,7 +1,7 @@
 # ![Klimatbil Logo](https://i.imgur.com/LyuNjIH.png) Klimatbil
 *A mobile website for easily offsetting your carbon emissions when you fuel your car. Currently only active in Sweden.*
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/fbdb56b6-59e7-445e-8fad-1f9932cdac23/deploy-status)](https://app.netlify.com/sites/klimatbil/deploys) [![Open Source Love](https://badges.frapsoft.com/os/v3/open-source.png?v=103)](https://github.com/ellerbrock/open-source-badges/) ![Twitter](https://img.shields.io/twitter/follow/klimatbil.svg?color=green&label=Follow%20us%20on%20twitter&style=social)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/fbdb56b6-59e7-445e-8fad-1f9932cdac23/deploy-status)](https://app.netlify.com/sites/klimatbil/deploys) ![Twitter Follow](https://img.shields.io/twitter/follow/klimatbil.svg?color=green&label=Follow%20us%20on%20twitter&style=social)
 ![Man in Peru rainforest](https://i.imgur.com/JvOFFmH.png)
 
 This README is currently being worked on.
