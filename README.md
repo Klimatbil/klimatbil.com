@@ -5,5 +5,5 @@
 
 This README is currently being worked on.
 
-## ![One Tree Planted Logo](https://i.imgur.com/K0kEPBI.png) One Tree Planted
+## ![One Tree Planted Logo](https://i.imgur.com/K0kEPBI.png) [One Tree Planted](https://onetreeplanted.org/pages/about-us)
 Our partner
