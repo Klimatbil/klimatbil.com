@@ -24,7 +24,7 @@ function UpdateTotal()
         SetText("#js-custom-donation-amount", finalAmount.toFixed(2));
 
         let form = document.getElementById("js-payment-form");
-        form.action = `https://wt-a1a4d75d2e7f5a03df41a2e03b3cd9d7-0.sandbox.auth0-extend.com/stripe-payment?amount=${finalAmount * 100}&description=custom`;
+        form.action = `https://wt-a1a4d75d2e7f5a03df41a2e03b3cd9d7-0.sandbox.auth0-extend.com/stripe-payment?amount=${Math.round(finalAmount * 100)}&description=custom`;
     }
     else
     {
@@ -50,7 +50,7 @@ function UpdateTotal()
 
         let fuelType = usingGasoline ? "bensin" : "diesel";
 
-        form.action = `https://wt-a1a4d75d2e7f5a03df41a2e03b3cd9d7-0.sandbox.auth0-extend.com/stripe-payment?amount=${finalAmount * 100}&description=${literAmount}+liter+${fuelType}`;
+        form.action = `https://wt-a1a4d75d2e7f5a03df41a2e03b3cd9d7-0.sandbox.auth0-extend.com/stripe-payment?amount=${Math.round(finalAmount * 100)}&description=${literAmount}+liter+${fuelType}`;
     }
 }
 

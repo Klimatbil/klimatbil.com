@@ -249,13 +249,6 @@
     cursor: pointer;
 }
 
-/* Mostly confusing for mobile users */
-/* .dropdown-toggle:hover
-{
-    cursor: pointer;
-    background-color: rgb(160, 160, 160);
-} */
-
 .dropdown-arrow path
 {
     transition-property: all;
@@ -283,7 +276,8 @@
 
 .page-banner.compensate
 {
-    background-image: url("../img/klimatkompensera-banner.png");
+    background-image: url("../img/banner-klimatkompensera.jpg");
+    background-position: bottom;
 }
 
 
