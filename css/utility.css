@@ -226,6 +226,11 @@
     text-decoration: underline;
 }
 
+.info-box .number
+{
+    font-size: 0.9em;
+    background-color: rgb(220, 220, 220);
+}
 
 /*  Dropdown
 ================================================== */
@@ -280,6 +285,11 @@
     background-position: bottom;
 }
 
+.page-banner.calculation-methology
+{
+    background-image: url("../img/banner-calculation-methology.jpeg");
+    background-position: bottom;
+}
 
 /*  Landing page
 ================================================== */
