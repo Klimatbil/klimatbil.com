@@ -13,8 +13,8 @@ let finalAmount = 0;
 
 function UpdateTotal()
 {
-    const gasolineMultiplier = 0.00234769703; // converts liters of gasoline to co2 emission in tonnes
-    const dieselMultiplier = 0.0026892715; // converts liters of diesel to co2 emission in tonnes
+    const gasolineMultiplier = 0.00234769703179; // converts liters of gasoline to co2 emission in tonnes
+    const dieselMultiplier = 0.00268927149585; // converts liters of diesel to co2 emission in tonnes
     
     let customPaymentValue = document.getElementById("js-money-input").value;
 
@@ -64,8 +64,8 @@ function CalculateFinalAmount(literAmount, emissionMultiplier)
 {
     let result = 0;
 
-    const yearlyTreeCo2Consumption = 21.7724 // in kilograms
-    const dollarToSek = 9.3                  // value of 1 dollar in sek
+    const yearlyTreeCo2Consumption = 21.77243376 // in kilograms
+    const dollarToSek = 9.3                      // value of 1 dollar in sek
 
     /*  Compensation fee
     ================================================== */
