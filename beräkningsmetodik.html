@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="se">
+<head>
+    <title>Klimatbil | Beräkningsmetodik</title>
+
+    <!-- Meta
+    ================================================== -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Marcus Otterström" />
+    <meta name="description" content="Klimatbil erbjuder dig ett enkelt sätt att klimatkompensera utsläppen från dina fordon. Billigt, snabbt och enkelt!" />
+    <meta name="keywords" content="klimatbil,klimatkompensera,enkelt,bil,fordon,klimatkompensera enkelt,klimatkompensera bil,klimatkompensera fordon,klimat,kompensera,miljö,miljöbil" />
+    <meta name="theme-color" content="#85c040" />
+
+    <meta property="og:site_name" content="Klimatbil" />
+    <meta property="og:title" content="Klimatbil | Beräkningsmetodik" />
+    <meta property="og:description" content="Klimatbil erbjuder dig ett enkelt sätt att klimatkompensera utsläppen från dina fordon. Billigt, snabbt och enkelt!" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://klimatbil.com/" />
+    <meta property="og:locale" content="sv_SE" />
+    <meta property="og:image" content="https://preview.ibb.co/iXbS7f/klimatbil-uf-logo.png" />
+    <meta property="og:image:height" content="1024" />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:type" content="image/png" />
+
+    <!-- Links
+    ================================================== -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="manifest" href="manifest.json" />
+
+    <!-- Important Styles
+    ================================================== -->
+    <link rel="stylesheet" type="text/css" media="screen" href="css/base.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/utility.css" />
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Top bar
+        ================================================== -->
+        <div class="top-bar">
+            <div class="top-bar-logo">
+                <img src="img/logo-128.png" alt="Logotyp för Klimatbil" onclick="SetWindowLocationTo('https://www.klimatbil.com')" />
+                <h1 onclick="SetWindowLocationTo('https://www.klimatbil.com/')">Klimatbil</h1>
+            </div>
+            <div id="js-nav-hamburger" class="nav-bar-toggle noSelectionHighlight" onclick="ToggleNavBar();">
+                <span class="hamburger-line hamburger-top"></span>
+                <span class="hamburger-line hamburger-middle"></span>
+                <span class="hamburger-line hamburger-bottom"></span>
+            </div>
+        </div>
+
+        <!-- Navigation bar
+        ================================================== -->
+        <nav class="nav-bar nav-bar-inactive" id="js-nav-bar">
+            <ul>
+                <li class="nav-link" onclick="SetWindowLocationTo('https://klimatbil.com')">Hem</li>
+                <li class="nav-link" onclick="SetWindowLocationTo('https://klimatbil.com/klimatkompensera')">Klimatkompensera</li>
+                <li class="nav-link" onclick="SetWindowLocationTo('https://klimatbil.com/om-oss')">Om oss</li>
+                <li class="nav-link" onclick="SetWindowLocationTo('https://klimatbil.com/beräkningsmetodik')">Beräkningsmetodik</li>
+            </ul>
+        </nav>
+
+        <div class="overlap-background transparent-background" id="js-overlap-background"></div>
+        <div class="overlap-hide hidden noSelectionHighlight" id="js-overlap-hide" onclick="ToggleNavBar()"></div>
+
+        <!-- Page content
+        ================================================== -->
+        <div class="content-wrapper">
+            <div class="page-banner calculation-methology">
+                <h2>Beräkningsmetodik</h2>
+            </div>
+            
+            <!-- Page introduction
+            ================================================== -->            
+            <div class="page-ribbon"><h3>DETALJERAD FÖRKLARING</h3></div>
+            <div class="info-box">
+                På denna sida kan du se exakt hur priset för en klimatkompensation räknas ut in i minsta detalj.
+            </div>
+
+            <!-- A link should be added to the monthly rapports here when they are up -->
+
+            <div class="info-box">
+                Hoppa till avsnitt:<br />
+                <a href="#bränslets-koldioxidutsläpp">Bränslets koldioxidutsläpp</a><br />
+                <a href="#antal-träd">Antal träd</a><br />
+                <a href="#trädens-kostnad">Trädens kostnad</a><br />
+                <a href="#övriga-kostnader">Övriga kostnader</a><br />
+                <a href="#exempelberäkningar">Exempelberäkningar</a><br />
+                <a href="#källkod">Källkod</a>
+            </div>
+
+            <!-- CO₂ emisssions for the fuel
+            ================================================== -->  
+            <a class="anchor" id="bränslets-koldioxidutsläpp"></a>
+            <div class="page-ribbon"><h3>BRÄNSLETS KOLDIOXIDUTSLÄPP</h3></div>
+            <div class="info-box">
+                Klimatbils beräkningsmetodik för mängden koldioxidutsläpp (CO₂) per liter bensin är densamma som används i
+                <a href="https://www.epa.gov/aboutepa/our-mission-and-what-we-do" target="_blank">EPA</a>:s (U.S. Environmental Protection Agency) regelverk.
+            </div>
+            <div class="info-box">
+                Enligt <a href="resources/documents/co2emissions-EPA.pdf" target="_blank">detta faktablad</a>
+                från EPA avger bränslena följande mängd:<br />
+                Bensin: <span class="number">8887</span> gram CO₂ / gallon<br />
+                Diesel <span class="number">10180</span> gram CO₂ / gallon
+            </div>
+            <div class="info-box">
+                Förklaring hur en mängd liter av en bränsletyp omvandlas till antal kilogram CO₂ följer nedan.
+            </div>
+            <div class="info-box">
+                En gallon är <span class="number">3.785411784</span> liter, 
+                vilket innebär att gram CO₂ per liter räknas ut genom att dividera antalet gram CO₂ per gallon med <span class="number">3.785411784</span>.
+                Detta ger:<br />
+                Bensin: <span class="number">2347.69703179</span> gram CO₂ / liter</span><br />
+                Diesel <span class="number">2689.27149585</span> gram CO₂ / liter</span>
+            </div>
+            <div class="info-box">
+                För att omvandla gram CO₂ per liter till kilogram CO₂ per liter divideras siffran med <span class="number">1000</span>.
+            </div>
+
+            <!-- Amount of trees
+            ================================================== -->              
+            <a class="anchor" id="antal-träd"></a>
+            <div class="page-ribbon"><h3>ANTAL TRÄD</h3></div>
+            <div class="info-box">
+                När mängden koldioxidutsläpp har beräknats måste antalet träd som ska planteras bestämmas.
+            </div>
+            <div class="info-box">
+                Antalet träd som planteras är baserat på ett träds årliga konsumption av CO₂. 
+                Det tar alltså ett år innan motsvarande mängd koldioxidutsläpp har konsumerats av träd.
+            </div>
+            <div class="info-box">
+                Enligt vår sammarbetspartner One Tree Planted konsumerar ett träd 48 pounds CO₂ per år.
+                Samma siffra understryks av <a href="https://www.ces.ncsu.edu/" target="_blank">NC State University</a> i
+                <a href="https://projects.ncsu.edu/project/treesofstrength/treefact.htm" target="_blank">detta</a> faktablad.
+            </div>
+            <div class="info-box">
+                För att omvandla en pound till ett kilo multipliceras värdet med <span class="number">0.45359237</span>.
+                Ett träds årliga CO₂-konsumption är alltså <span class="number">21.77243376</span> kg.
+            </div>
+
+            <!-- Tree costs
+            ================================================== --> 
+            <a class="anchor" id="trädens-kostnad"></a>
+            <div class="page-ribbon"><h3>TRÄDENS KOSTNAD</h3></div>
+            <div class="info-box">
+                <img src="img/OTP-plant-cost.png" width="100%" style="max-width: 700px;"/><br />
+                <a href="img/OTP-plant-cost.png" target="_blank">Öppna bilden i ny flik</a>
+            </div>
+            <div class="info-box">
+                Träden kostar en amerikansk dollar (USD) att plantera med One Tree Planted.
+                Hur dessa pengar delas upp visas i bilden.
+            </div>
+            <div class="info-box">
+                Klimatbil använder värdet på en amerikanska dollar (USD) från 26 Februari 2019.
+                För att omvandla en amerikansk dollar (USD) till svenska kronor (SEK) multipliceras värdet med <span class="number">9.3</span>.
+            </div>
+
+            <!-- Other costs
+            ================================================== --> 
+            <a class="anchor" id="övriga-kostnader"></a>
+            <div class="page-ribbon"><h3>ÖVRIGA KOSTNADER</h3></div>
+            <div class="info-box">
+                <h4>Seriveavgift</h4>
+                För att täcka hemsidans drifkostnader samt bekosta marknadsföring lägger Klimatbil till en serviceavgift på kompensationen.
+                Denna serviceavgift är <span class="number">10%</span> av den totala summan.
+            </div>
+            <div class="info-box">
+                <h4>Stripe</h4>
+                Betalningar på Klimatbil hanteras via <a href="https://stripe.com/about" target="_blank">Stripe</a>.
+                Stripe tar en avgift på 1.8 SEK + 1.4% av den slutgiltliga summan.
+            </div>
+
+            <!-- Examples
+            ================================================== --> 
+            <a class="anchor" id="exempelberäkningar"></a>
+            <div class="page-ribbon"><h3>EXEMPELBERÄKNINGAR</h3></div>
+            <div class="info-box">
+                Nedan följer två exempel där beräkningsmetoden förklaras steg för steg. 
+            </div>
+            <div class="info-box">
+                För att göra metoden lättare att följa har antalet decimaler har begränsats till fyra. Talen rundas ej av i verkliga beräkningen (förutom där det står specifikt att talet avrundas).
+            </div>
+
+            <!-- Example 1
+            ================================================== --> 
+            <div class="dropdown">
+                <div class="dropdown-toggle" onclick="ToggleDropdown(this.parentElement)">
+                    <span>Exempel 1: 23 liter bensin</span>
+                    <div class="dropdown-arrow">
+                        <svg height="10" width="10">
+                            <path transform="rotate(0, 5, 5)" d="M0 0 L10 0 L5 10 Z" fill="#444444" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="dropdown-content hidden">
+                    <ul class="compensation-info">
+                        <li>23 (mängden liter) multipliceras med 2347.697 (gram CO₂ per liter bensin) som ger 53997.0317 (gram CO₂-utsläpp)</li>
+                        <li>53997.0317 divideras med 1000 som ger 53.997 (kilogram CO₂-utsläpp)</li>
+                        <li>53.997 divideras med 21.7724 (ett träds årliga CO₂ konsumption i kilogram) som ger 2.48 (antal träd att plantera)</li>
+                        <li>2.48 multipliceras med 9.3 (1 USD till SEK) som ger 23.0646 (trädens kostnad i SEK)</li>
+                        <li>23.0646 avrundas uppåt till den andra decimalen som ger 23.07 (trädens kostnad i SEK)</li>
+                        <li>23.07 divideras med 0.9 (Klimatbils serviceavgift) som ger 25.6333 (summa med serviceavgift i SEK)</li>
+                        <li>25.6333 adderas med 1.8 (fast stripekostnad i SEK) som ger 27.4333 (summa med serviceavgift och fast stripekostnad i SEK)</li>
+                        <li>27.4333 divideras med 0.986 (stripekostnad) som ger 27.8229 (total summa i SEK)</li>
+                        <li>27.8229 avrundas uppåt till den andra decimalen som ger 27.83 (total summa i SEK)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Example 2
+            ================================================== --> 
+            <div class="dropdown">
+                <div class="dropdown-toggle" onclick="ToggleDropdown(this.parentElement)">
+                    <span>Exempel 2: 39.12 liter diesel</span>
+                    <div class="dropdown-arrow">
+                        <svg height="10" width="10">
+                            <path transform="rotate(0, 5, 5)" d="M0 0 L10 0 L5 10 Z" fill="#444444" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="dropdown-content hidden">
+                    <ul class="compensation-info">
+                        <li>39.12 (mängden liter) multipliceras med 2689.2715 (gram CO₂ per liter bensin) som ger 105204.3009 (gram CO₂-utsläpp)</li>
+                        <li>105204.3009 divideras med 1000 som ger 105.2043 (kilogram CO₂-utsläpp)</li>
+                        <li>105.2043 divideras med 21.7724 (ett träds årliga CO₂ konsumption i kilogram) som ger 4.832 (antal träd att plantera)</li>
+                        <li>4.832 multipliceras med 9.3 (1 USD till SEK) som ger 44.9376 (trädens kostnad i SEK)</li>
+                        <li>44.9376 avrundas uppåt till den andra decimalen som ger 44.94 (trädens kostnad i SEK)</li>
+                        <li>44.94 divideras med 0.9 (Klimatbils serviceavgift) som ger 49.9333 (summa med serviceavgift i SEK)</li>
+                        <li>49.9333 adderas med 1.8 (fast stripekostnad i SEK) som ger 51.7333 (summa med serviceavgift och fast stripekostnad i SEK)</li>
+                        <li>51.7333 divideras med 0.986 (stripekostnad) som ger 52.4679 (total summa i SEK)</li>
+                        <li>52.4679 avrundas uppåt till den andra decimalen som ger 52.47 (total summa i SEK)</li>
+                    </ul>
+                </div>
+            </div>
+            <br />
+
+            <!-- Source code
+            ================================================== --> 
+            <a class="anchor" id="källkod"></a>
+            <div class="page-ribbon"><h3>KÄLLKOD</h3></div>
+            <div class="info-box">
+                Klimatbil har öppen källkod vilket innebär att vem som helst kan se hur hemsidan är programmerad och uppbyggd.
+                Källkoden kan du hitta <a href="https://github.com/Klimatbil/klimatbil.com" target="_blank">här</a>.
+            </div>
+            <div class="info-box">
+                Full transparens är mycket viktigt för oss så att du som klimatkompenserar kan känna dig säker på att allt går rätt till.
+                Om du har några synpunkter eller funderingar över innehållet på denna sida, <a href="om-oss.html">kontakta oss</a>!
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript
+    ================================================== -->
+    <script src="js/main.js"></script>
+
+    <!-- Secondary Styles
+    ================================================== -->
+    <link rel="stylesheet" type="text/css" media="screen" href="css/normalize.css" />
+</body>
+</html>
