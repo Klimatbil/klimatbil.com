@@ -7,6 +7,7 @@
 
 .content-wrapper
 {
+    min-height: calc(100vh - 9.6rem);
     margin-top: 9.6rem;
     width: 100%;
 }
@@ -282,7 +283,6 @@
 .page-banner.compensate
 {
     background-image: url("../img/banner-klimatkompensera.jpg");
-    background-position: bottom;
 }
 
 .page-banner.calculation-methology
@@ -291,17 +291,23 @@
     background-position: bottom;
 }
 
+.page-banner.about-us
+{
+    background-image: url("https://images.pexels.com/photos/128234/pexels-photo-128234.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    background-position: center;
+}
+
 /*  Landing page
 ================================================== */
 .landing-container
 {
-    min-height: 90vh;
+    min-height: calc(100vh - 9.6rem);
 }
 
 .landing-background
 {
     position: absolute;
-    height: 90vh;
+    min-height: calc(100vh - 9.6rem);
     width: 100%;
     z-index: -1;
 
@@ -556,11 +562,7 @@
     text-align: center;
     margin-left: 9%;
     margin-top: 1em;
-    margin-bottom: 2em;
     height: 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
     width: 80%;
 }
 
@@ -580,4 +582,14 @@
     box-sizing: border-box;
     text-align: center;
     background-color: rgb(255, 150, 150);
+}
+
+/*  Footer
+================================================== */
+.footer
+{
+    padding: 1rem;
+    height: 6rem;
+    border-top: 2px solid #bbbbbb;
+    background-color: #cccccc;
 }
