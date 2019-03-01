@@ -588,8 +588,24 @@
 ================================================== */
 .footer
 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     padding: 1rem;
     height: 6rem;
-    border-top: 2px solid #bbbbbb;
-    background-color: #cccccc;
+    box-shadow: inset 0px 9px 10px -3px rgba(0, 0, 0, 0.15);
+    background-color: #dddddd;
+    font-size: 1.3rem;
+}
+
+.footer .email
+{
+    color: rgb(100, 100, 255);
+    margin-bottom: 0.25em;
+    text-decoration: underline;
+}
+
+.footer .at-icon-wrapper
+{
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
 }
