@@ -190,6 +190,19 @@
     z-index: 2;
 }
 
+/*  Fullscreen background image
+================================================== */
+.fullscreen-background
+{
+    position: absolute;
+    min-height: calc(100vh - 9.6rem);
+    width: 100%;
+    z-index: -1;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 
 /*  Page ribbon
 ================================================== */
@@ -282,7 +295,7 @@
 
 .page-banner.compensate
 {
-    background-image: url("../img/banner-klimatkompensera.jpg");
+    background-image: url("../img/banner-compensate.jpg");
 }
 
 .page-banner.calculation-methology
@@ -293,9 +306,10 @@
 
 .page-banner.about-us
 {
-    background-image: url("https://images.pexels.com/photos/128234/pexels-photo-128234.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    background-image: url("../img/banner-about-us.jpg");
     background-position: center;
 }
+
 
 /*  Landing page
 ================================================== */
@@ -304,17 +318,9 @@
     min-height: calc(100vh - 9.6rem);
 }
 
-.landing-background
+.fullscreen-background.landing
 {
-    position: absolute;
-    min-height: calc(100vh - 9.6rem);
-    width: 100%;
-    z-index: -1;
-
-    background-image: url("../img/landing-page.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    background-image: url("../img/fullscreen-landing.jpg");
 }
 
 .landing-container h2
@@ -583,6 +589,52 @@
     text-align: center;
     background-color: rgb(255, 150, 150);
 }
+
+/*  Thank you page
+================================================== */
+.fullscreen-background.thank-you
+{
+    background-image: url("../img/fullscreen-thank-you.jpg");
+}
+
+.thank-you-text
+{
+    padding-top: 1em;
+    font-size: 4rem;
+    margin: 0;
+}
+
+.receipt-info
+{
+    font-size: 1.8rem;
+}
+
+.share-section
+{
+    margin-top: 12rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    height: 12.5rem;
+    font-size: 2rem;
+}
+
+.share-section div:nth-child(1)
+{
+    font-weight: bold;
+    padding: 0.5em;
+    color: rgb(0, 110, 18);
+}
+
+.share-section div:nth-child(2)
+{
+    text-align: center;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
 
 /*  Footer
 ================================================== */

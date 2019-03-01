@@ -63,19 +63,29 @@
 
         <div class="overlap-background transparent-background" id="js-overlap-background"></div>
         <div class="overlap-hide hidden noSelectionHighlight" id="js-overlap-hide" onclick="ToggleNavBar()"></div>
-
-        <!-- Main content
+        
+        <!-- Page content
         ================================================== -->
         <div class="content-wrapper">
-            <br /><br /><br /><br /><br />
-            <h1>Klimatbil</h1>
-            <h2>Tack för din kompensation! <s>det var snällt!</s></h2>
-            <br /> <br /> 
-            <div>
-                Vi skickar ett kvitto till den epost-adress som angavs vid betalningen.
+            <div class="fullscreen-background thank-you"></div>
+
+            <h2 class="thank-you-text">Tack för att du kompenserar!</h2>
+            <h2 class="receipt-info">Du har fått ett kvitto på din e-postadress.</h2>
+            <div class="share-section">
+                <div>Dela med dina vänner!</div>
+                <div class="addthis_inline_share_toolbox"></div>
             </div>
-            <img src="img/logo-128.png" alt="Logotyp för Klimatbil" />
+
+            <!-- TODO: Add info about price winning -->
         </div>
+        <div class="footer">
+            <div>
+                <div class="email"><a href="mailto:klimatbil@gmail.com">klimatbil@gmail.com</a></div>
+                <div>Uppsala, Sweden</div>
+            </div>
+            <div class="addthis_inline_follow_toolbox"></div>
+        </div>
+
     </div>
 
     <!-- JavaScript
@@ -85,5 +95,9 @@
     <!-- Secondary Styles
     ================================================== -->
     <link rel="stylesheet" type="text/css" media="screen" href="css/normalize.css" />
+
+    <!-- AddThis buttons
+    ================================================== -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5c7886c5a66f2ac6"></script>
 </body>
 </html>
