@@ -256,6 +256,12 @@
     margin-right: auto;
     width: 90%;
     background-color: rgb(220, 220, 220);
+    border-radius: 1em;
+}
+
+.dropdown-content li:last-child
+{
+    border-radius: 1em;
 }
 
 .dropdown-toggle
@@ -344,6 +350,7 @@
     margin-top: 1.5em;
     font-size: 1.3rem;
     background-color: #606060;
+    border-radius: 1em;
 }
 
 .more-info-button:hover
@@ -369,6 +376,7 @@
     padding: 0.75em 2.5em;
     margin-top: 1em;
     max-width: 95%;
+    border-radius: 1em;
 }
 
 .compensate-button.invalid:active
@@ -487,6 +495,7 @@
 
 .fuel-type-button
 {
+    border-radius: 1em;
     height: 80%;
     width: 20vw;
     background-color: rgb(220, 220, 220);
