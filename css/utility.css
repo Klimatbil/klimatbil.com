@@ -311,7 +311,7 @@
 
 .page-banner.calculation-methology
 {
-    background-image: url("../img/banner-calculation-methology.jpeg");
+    background-image: url("../img/banner-calculation-methology.jpg");
     background-position: bottom;
 }
 
@@ -673,7 +673,7 @@
 ================================================== */
 .fullscreen-background.page-not-found
 {
-    background-image: url("https://images.pexels.com/photos/1051321/pexels-photo-1051321.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    background-image: url("../img/fullscreen-page-not-found.jpg");
 }
 
 
