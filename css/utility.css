@@ -669,6 +669,14 @@
     box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
 }
 
+/*  404 Page not found
+================================================== */
+.fullscreen-background.page-not-found
+{
+    background-image: url("https://images.pexels.com/photos/1051321/pexels-photo-1051321.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+}
+
+
 /*  Footer
 ================================================== */
 .footer
@@ -696,6 +704,8 @@
 }
 
 
+/*  Media queries 
+================================================== */
 @media only screen and (min-width: 900px)
 {
     .site-background-color
