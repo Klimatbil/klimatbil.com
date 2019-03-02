@@ -24,7 +24,7 @@ function UpdateTotal()
         SetText("#js-custom-donation-amount", finalAmount.toFixed(2));
 
         let form = document.getElementById("js-payment-form");
-        form.action = `https://wt-a1a4d75d2e7f5a03df41a2e03b3cd9d7-0.sandbox.auth0-extend.com/stripe-payment?amount=${Math.round(finalAmount * 100)}&description=custom`;
+        form.action = `https://wt-a1a4d75d2e7f5a03df41a2e03b3cd9d7-0.sandbox.auth0-extend.com/stripe-payment?amount=${Math.round(finalAmount * 100)}&fueltype=custom&literamount=0`;
     }
     else
     {
@@ -50,7 +50,7 @@ function UpdateTotal()
 
         let fuelType = usingGasoline ? "bensin" : "diesel";
 
-        form.action = `https://wt-a1a4d75d2e7f5a03df41a2e03b3cd9d7-0.sandbox.auth0-extend.com/stripe-payment?amount=${Math.round(finalAmount * 100)}&description=${literAmount}+liter+${fuelType}`;
+        form.action = `https://wt-a1a4d75d2e7f5a03df41a2e03b3cd9d7-0.sandbox.auth0-extend.com/stripe-payment?amount=${Math.round(finalAmount * 100)}&fueltype=${fuelType}&literamount=${literAmount}`;
     }
 }
 
@@ -58,24 +58,24 @@ function UpdateTotal()
  * Calculates the final amount with applied service and stripe fees.
  * @param {number} literAmount        - The amount of liters the user has fueled
  * @param {number} emissionMultiplier - The liters of fuel type => co2 emission multiplier
- * @returns {number} The final amount to pay
+ * @returns {number} The final amount to pay in SEK
  */
 function CalculateFinalAmount(literAmount, emissionMultiplier)
 {
     let result = 0;
 
-    const yearlyTreeCo2Consumption = 21.77243376 // in kilograms
-    const dollarToSek = 9.3                      // value of 1 dollar in sek
+    const yearlyTreeCo2Consumption = 21.77243376;  // in kilograms
+    const dollarToSek = 9.3;                       // value of 1 dollar in sek
 
     /*  Compensation fee
     ================================================== */
     result = literAmount * emissionMultiplier;     // Amount of co2 emissions in tonnes
     result *= 1000;                                // Amount of co2 in kg
     result /= yearlyTreeCo2Consumption;            // Amount of trees that need to be planted to offset the carbon emissions.
-    SetText(".js-tree-amount", result.toFixed(1)); // Display this number on the page
+    SetText(".js-tree-amount", result.toFixed(50)); // Display this number on the page
 
     result *= dollarToSek;                         // Amount of SEK required to buy those trees
-    result = Math.ceil(result * 100) / 100;        // Ceil to the 2nd decimal
+    result = Math.round(result * 100) / 100;       // Round to the 2nd decimal
 
     /*  Service fee
     ================================================== */
@@ -85,7 +85,7 @@ function CalculateFinalAmount(literAmount, emissionMultiplier)
     ================================================== */
     result += 1.8;                                 // Add 1.8kr
     result /= 0.986;                               // Add 1.4%
-    result = Math.ceil(result * 100) / 100;        // Ceil to the 2nd decimal
+    result = Math.round(result * 100) / 100;       // Round to the 2nd decimal
 
     return result;
 }
