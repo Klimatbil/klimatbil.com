@@ -72,7 +72,7 @@ function CalculateFinalAmount(literAmount, emissionMultiplier)
     result = literAmount * emissionMultiplier;     // Amount of co2 emissions in tonnes
     result *= 1000;                                // Amount of co2 in kg
     result /= yearlyTreeCo2Consumption;            // Amount of trees that need to be planted to offset the carbon emissions.
-    SetText(".js-tree-amount", result.toFixed(50)); // Display this number on the page
+    SetText(".js-tree-amount", result.toFixed(1)); // Display this number on the page
 
     result *= dollarToSek;                         // Amount of SEK required to buy those trees
     result = Math.round(result * 100) / 100;       // Round to the 2nd decimal
