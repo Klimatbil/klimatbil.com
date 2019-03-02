@@ -1,8 +1,13 @@
 /*  Wrappers
 ================================================== */
-.page-wrapper
+.width-constraint
 {
     width: 100vw;
+}
+
+.page-wrapper
+{
+    width: 100%;
 }
 
 .content-wrapper
@@ -20,7 +25,7 @@
     background-color: #f5f5f5;
     position: fixed;
     top: 0px;
-    width: 100%;
+    width: inherit;
     display: flex;
     box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.1);
     z-index: 10;
@@ -109,7 +114,7 @@
     transition-property: transform;
     text-align: center;
     color: #505050;
-    width: 100%;
+    width: inherit;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     z-index: 5;
@@ -322,6 +327,7 @@
 .landing-container
 {
     min-height: calc(100vh - 9.6rem);
+    width: 100%;
 }
 
 .fullscreen-background.landing
@@ -433,7 +439,7 @@
 {
     height: 100%;
     text-align: center;
-    width: 50vw;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -486,7 +492,7 @@
 .fuel-type-input
 {
     height: 100%;
-    width: 50vw;
+    width: 50%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -497,7 +503,7 @@
 {
     border-radius: 1em;
     height: 80%;
-    width: 20vw;
+    width: 40%;
     background-color: rgb(220, 220, 220);
 }
 
@@ -580,7 +586,6 @@
     margin-bottom: 2em;
     height: 8rem;
     width: 80%;
-    box-sizing: border-box;
 }
 
 .stripe-info .image-container
@@ -688,4 +693,23 @@
 .footer .at-icon-wrapper
 {
     box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+@media only screen and (min-width: 900px)
+{
+    .site-background-color
+    {
+        width: 900px;
+        left: 50%;
+        margin-left: -450px;
+    }
+
+    .width-constraint, .fullscreen-background
+    {
+        /* Makes the box shadow scroll under the nav bar very obvious */
+        /* box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.3); */
+        width: 900px; 
+        margin: auto;
+    }
 }

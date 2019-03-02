@@ -35,7 +35,8 @@
     <link rel="stylesheet" type="text/css" media="screen" href="css/utility.css" />
 </head>
 <body>
-    <div class="page-wrapper">
+    <div class="site-background-color"></div>
+    <div class="width-constraint">
         <!-- Top bar
         ================================================== -->
         <div class="top-bar">
@@ -63,29 +64,30 @@
 
         <div class="overlap-background transparent-background" id="js-overlap-background"></div>
         <div class="overlap-hide hidden noSelectionHighlight" id="js-overlap-hide" onclick="ToggleNavBar()"></div>
-        
-        <!-- Page content
-        ================================================== -->
-        <div class="content-wrapper">
-            <div class="fullscreen-background thank-you"></div>
 
-            <h2 class="thank-you-text">Tack för att du kompenserar!</h2>
-            <h2 class="receipt-info">Du har fått ett kvitto på din e-postadress.</h2>
-            <div class="share-section">
-                <div>Dela med dina vänner!</div>
-                <div class="addthis_inline_share_toolbox"></div>
+        <div class="page-wrapper">
+            <!-- Page content
+            ================================================== -->
+            <div class="content-wrapper">
+                <div class="fullscreen-background thank-you"></div>
+    
+                <h2 class="thank-you-text">Tack för att du kompenserar!</h2>
+                <h2 class="receipt-info">Du har fått ett kvitto på din e-postadress.</h2>
+                <div class="share-section">
+                    <div>Dela med dina vänner!</div>
+                    <div class="addthis_inline_share_toolbox"></div>
+                </div>
+    
+                <!-- TODO: Add info about price winning -->
             </div>
-
-            <!-- TODO: Add info about price winning -->
-        </div>
-        <div class="footer">
-            <div>
-                <div class="email"><a href="mailto:klimatbil@gmail.com">klimatbil@gmail.com</a></div>
-                <div>Uppsala, Sweden</div>
+            <div class="footer">
+                <div>
+                    <div class="email"><a href="mailto:klimatbil@gmail.com">klimatbil@gmail.com</a></div>
+                    <div>Uppsala, Sweden</div>
+                </div>
+                <div class="addthis_inline_follow_toolbox"></div>
             </div>
-            <div class="addthis_inline_follow_toolbox"></div>
         </div>
-
     </div>
 
     <!-- JavaScript
