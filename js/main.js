@@ -1,3 +1,5 @@
+alert("Detta är ett testmeddelande, du kan ignorera detta.");
+
 function SetWindowLocationTo(newLocation)
 {
     window.location.href = newLocation;
