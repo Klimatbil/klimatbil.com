@@ -1,13 +1,5 @@
-function DOMReady()
-{
-    console.log("DOM loaded");
-}
-
-DOMReady();
-
 function SetWindowLocationTo(newLocation)
 {
-    alert('Detta är ett testmeddelande (2), du kan ignorera detta.');
     window.location.href = newLocation;
 }
 
