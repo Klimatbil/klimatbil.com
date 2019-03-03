@@ -8,32 +8,32 @@ function RemoveStripeDefaultButton()
 
 RemoveStripeDefaultButton();
 
-let usingGasoline = true;
-let finalAmount = 0;
+var usingGasoline = true;
+var finalAmount = 0;
 
 function UpdateTotal()
 {
     const gasolineMultiplier = 0.00234769703179; // converts liters of gasoline to co2 emission in tonnes
     const dieselMultiplier = 0.00268927149585; // converts liters of diesel to co2 emission in tonnes
     
-    let customPaymentValue = document.getElementById("js-money-input").value;
+    var customPaymentValue = document.getElementById("js-money-input").value;
 
     if (customPaymentValue !== "")
     {
         finalAmount = Math.round(parseFloat(customPaymentValue) * 100) / 100;
         SetText("#js-custom-donation-amount", finalAmount.toFixed(2));
 
-        let form = document.getElementById("js-payment-form");
+        var form = document.getElementById("js-payment-form");
         form.action = `https://wt-a1a4d75d2e7f5a03df41a2e03b3cd9d7-0.sandbox.auth0-extend.com/stripe-payment?amount=${Math.round(finalAmount * 100)}&fueltype=custom&literamount=0`;
     }
     else
     {
         finalAmount = 0;
 
-        let literAmount = document.getElementById("js-liter-input").value;
+        var literAmount = document.getElementById("js-liter-input").value;
         SetText(".js-liter-amount", (literAmount * 1).toFixed(2));
 
-        let emissionMultiplier = usingGasoline ? gasolineMultiplier : dieselMultiplier;
+        var emissionMultiplier = usingGasoline ? gasolineMultiplier : dieselMultiplier;
         SetText("#js-co2-emission", (literAmount * emissionMultiplier).toFixed(4));
 
         if (literAmount === "" || parseFloat(literAmount) === 0) 
@@ -46,9 +46,9 @@ function UpdateTotal()
         finalAmount = CalculateFinalAmount(literAmount, emissionMultiplier);
         
         SetText(".js-total-amount", finalAmount);
-        let form = document.getElementById("js-payment-form");
+        var form = document.getElementById("js-payment-form");
 
-        let fuelType = usingGasoline ? "bensin" : "diesel";
+        var fuelType = usingGasoline ? "bensin" : "diesel";
 
         form.action = `https://wt-a1a4d75d2e7f5a03df41a2e03b3cd9d7-0.sandbox.auth0-extend.com/stripe-payment?amount=${Math.round(finalAmount * 100)}&fueltype=${fuelType}&literamount=${literAmount}`;
     }
@@ -62,7 +62,7 @@ function UpdateTotal()
  */
 function CalculateFinalAmount(literAmount, emissionMultiplier)
 {
-    let result = 0;
+    var result = 0;
 
     const yearlyTreeCo2Consumption = 21.77243376;  // in kilograms
     const dollarToSek = 9.3;                       // value of 1 dollar in sek
@@ -126,8 +126,8 @@ function ToggleFuelType(fuelTypeButton)
  */
 function FormIsValid()
 {
-    let isValid = true;
-    let errorMsg = "";
+    var isValid = true;
+    var errorMsg = "";
 
     if (finalAmount < 10) 
     {
@@ -140,8 +140,8 @@ function FormIsValid()
         isValid = false;
     }
 
-    let checkoutButton = document.getElementById("js-checkout-button");
-    let errorMsgElement = document.getElementById("js-invalid-form-message");
+    var checkoutButton = document.getElementById("js-checkout-button");
+    var errorMsgElement = document.getElementById("js-invalid-form-message");
 
     if (isValid === false)
     {

@@ -5,10 +5,10 @@ function SetWindowLocationTo(newLocation)
 
 function ToggleNavBar()
 {
-    let navBar = document.getElementById("js-nav-bar");
-    let overlapBackground = document.getElementById("js-overlap-background");
-    let overlapHide = document.getElementById("js-overlap-hide");
-    let hamburger = document.getElementById("js-nav-hamburger");
+    var navBar = document.getElementById("js-nav-bar");
+    var overlapBackground = document.getElementById("js-overlap-background");
+    var overlapHide = document.getElementById("js-overlap-hide");
+    var hamburger = document.getElementById("js-nav-hamburger");
 
     navBar.classList.toggle("nav-bar-active");
     navBar.classList.toggle("nav-bar-inactive");
@@ -28,10 +28,10 @@ function ToggleNavBar()
 
 function ToggleDropdown(dropdownElement)
 {
-    let dropdownContent = dropdownElement.querySelector(".dropdown-content");
+    var dropdownContent = dropdownElement.querySelector(".dropdown-content");
     dropdownContent.classList.toggle("hidden");
     
-    let isHidden = dropdownContent.classList.contains("hidden");
+    var isHidden = dropdownContent.classList.contains("hidden");
 
     dropdownElement.querySelector(".dropdown-arrow path")
         .setAttribute("transform", `rotate(${isHidden ? 0 : 180}, 5, 5)`)
