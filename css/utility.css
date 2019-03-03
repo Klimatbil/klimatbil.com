@@ -366,6 +366,12 @@
     background-color: #404040;
 }
 
+.otp-video
+{
+    border: none;
+    width: 280px;
+    height: 158px;
+}
 
 /*  Compensate button
 ================================================== */
@@ -723,5 +729,63 @@
         /* box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.3); */
         width: 900px; 
         margin: auto;
+    }
+
+    .landing-container h2
+    {
+        font-size: 7rem;
+    }
+
+    .compensate-button.big
+    {
+        font-size: 4rem;
+    }
+
+    .compensate-button.small
+    {
+        font-size: 3rem;
+    }
+
+    .more-info-button
+    {
+        font-size: 1.6rem;
+    }
+
+    .page-ribbon
+    {
+        font-size: 2.25rem;
+    }
+
+    .info-box
+    {
+        font-size: 2.3rem;
+    }
+
+    .otp-video
+    {
+        border: none;
+        width: 560px;
+        height: 315px;
+    }
+
+    .page-banner
+    {
+        height: 24rem;
+    }
+
+    .page-banner h2
+    {
+        font-size: 5rem;
+        top: 16rem;
+    }
+
+    .stripe-info
+    {
+        font-size: 1.5rem;
+    }
+
+    .dropdown-toggle
+    {
+        font-size: 1.3rem;
     }
 }
