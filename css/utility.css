@@ -8,6 +8,8 @@
 .page-wrapper
 {
     width: 100%;
+    -webkit-transform: translate3d(0, 0, 0); /* Fixes z-index issues for safari */
+    transform: translate3d(0, 0, 0)
 }
 
 .content-wrapper
