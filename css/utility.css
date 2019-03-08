@@ -274,7 +274,7 @@
 .dropdown-toggle
 {
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     padding: 0.8em;
     display: flex;
     justify-content: space-around;
@@ -544,7 +544,7 @@
 .compensation-info
 {
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     margin-bottom: 1em;
     margin-top: 0;
 }
@@ -568,7 +568,7 @@
 .more-info-link
 {
     text-align: right;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     margin-right: 1em;
     margin-bottom: 2em;
     padding: 0.5em;
@@ -588,6 +588,7 @@
 
 .stripe-info
 {
+    font-size: 1.3rem;
     text-align: center;
     margin-left: 9%;
     margin-top: 1em;
@@ -782,10 +783,5 @@
     .stripe-info
     {
         font-size: 1.5rem;
-    }
-
-    .dropdown-toggle
-    {
-        font-size: 1.3rem;
     }
 }
