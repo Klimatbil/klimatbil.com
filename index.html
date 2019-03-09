@@ -75,16 +75,17 @@
             <div class="content-wrapper">
                 <div class="landing-container">
                     <div class="fullscreen-background landing"></div>
-            
                     <h2>Klimatkompensera enkelt vid tankning</h2>
-        
+                    
                     <button class="compensate-button big" onclick="SetWindowLocationTo('https://www.klimatbil.com/klimatkompensera');">
                         Kom igång
                     </button>
-    
+                    
                     <button class="more-info-button" onclick="SetWindowLocationTo('#hur-fungerar-det')">
                         Mer information
                     </button>
+
+                    <div class="tree-counter"><span id="counter">0</span> träd planterade!</div>
                 </div>
     
                 <a class="anchor" id="hur-fungerar-det"></a>
@@ -160,7 +161,17 @@
 
     <!-- JavaScript
     ================================================== -->
+    <script src="js/countUp.js"></script>
     <script src="js/main.js"></script>
+
+    <!-- Starts the tree counter for now. Should probably be in a separate file. -->
+    <script>
+        var counter = new CountUp("counter", 0, 80, 0, 5, {
+            useGrouping: false,
+            suffix: '+'
+        });
+        counter.start();
+    </script>
 
     <!-- Secondary Styles
     ================================================== -->
