@@ -46,8 +46,12 @@
         <div class="top-bar">
             <div class="top-bar-logo">
                 <img src="img/logo-128.png" alt="Logotyp för Klimatbil" onclick="SetWindowLocationTo('https://www.klimatbil.com')" />
-                <h1 onclick="SetWindowLocationTo('https://www.klimatbil.com/')">Klimatbil</h1>
+                <h1 onclick="SetWindowLocationTo('https://www.klimatbil.com/')">
+                    Klimatbil
+                    <div class="tree-counter"><span id="counter">0</span> träd planterade!</div>
+                </h1>
             </div>
+
             <div id="js-nav-hamburger" class="nav-bar-toggle noSelectionHighlight" onclick="ToggleNavBar();">
                 <span class="hamburger-line hamburger-top"></span>
                 <span class="hamburger-line hamburger-middle"></span>
@@ -84,8 +88,6 @@
                     <button class="more-info-button" onclick="SetWindowLocationTo('#hur-fungerar-det')">
                         Mer information
                     </button>
-
-                    <div class="tree-counter"><span id="counter">0</span> träd planterade!</div>
                 </div>
     
                 <a class="anchor" id="hur-fungerar-det"></a>
@@ -166,7 +168,7 @@
 
     <!-- Starts the tree counter for now. Should probably be in a separate file. -->
     <script>
-        var counter = new CountUp("counter", 0, 85, 0, 5, {
+        var counter = new CountUp("counter", 0, 90, 0, 5, {
             useGrouping: false,
             suffix: '+'
         });
