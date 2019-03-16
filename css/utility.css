@@ -375,10 +375,10 @@
 
 .tree-counter
 {
-    margin-top: 1em;
-    text-align: center;
-    font-size: 1.35rem;
-    color: #f5f5f5;
+    font-size: 1.2rem;
+    color: #85C040;
+    font-family: Exo, sans-serif;
+    font-weight: bold;
 }
 
 /*  Compensate button
@@ -744,14 +744,14 @@
         font-size: 7rem;
     }
 
+    .tree-counter
+    {
+        font-size: 1.5rem;
+    }
+
     .compensate-button.big
     {
         font-size: 4rem;
-    }
-
-    .tree-counter
-    {
-        font-size: 3rem;
     }
 
     .compensate-button.small
