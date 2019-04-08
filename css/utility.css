@@ -120,7 +120,7 @@
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     z-index: 5;
-    height: 33.6rem;
+    height: 42em;
 }
 
 .nav-bar ul
@@ -145,8 +145,8 @@
     transition-duration: 0.20s;
     transition-timing-function: ease-in;
 
-    -webkit-transform: translateY(-33.6rem);
-    transform: translateY(-33.6rem);
+    -webkit-transform: translateY(-42rem);
+    transform: translateY(-42rem);
     will-change: transform;
 }
 
@@ -196,6 +196,7 @@
     left: 0;
     z-index: 2;
 }
+
 
 /*  Fullscreen background image
 ================================================== */
@@ -252,6 +253,7 @@
     font-size: 0.9em;
     background-color: rgb(220, 220, 220);
 }
+
 
 /*  Dropdown
 ================================================== */
@@ -320,7 +322,11 @@
 .page-banner.about-us
 {
     background-image: url("../img/banner-about-us.jpg");
-    background-position: center;
+}
+
+.page-banner.monthly-reports
+{
+    background-image: url("../img/banner-monthly-reports.jpeg");
 }
 
 
@@ -328,12 +334,15 @@
 ================================================== */
 .landing-container
 {
-    min-height: calc(100vh - 9.6rem);
+    min-height: 60rem;
+    height: calc(100vh - 9.6rem);
     width: 100%;
 }
 
 .fullscreen-background.landing
 {
+    min-height: 60rem;
+    height: calc(100vh - 9.6rem);
     background-image: url("../img/fullscreen-landing.jpg");
 }
 
@@ -380,6 +389,7 @@
     font-family: Exo, sans-serif;
     font-weight: bold;
 }
+
 
 /*  Compensate button
 ================================================== */
@@ -635,6 +645,7 @@
     background-color: rgb(255, 150, 150);
 }
 
+
 /*  Thank you page
 ================================================== */
 .fullscreen-background.thank-you
@@ -685,11 +696,50 @@
     box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
 }
 
+
 /*  404 Page not found
 ================================================== */
 .fullscreen-background.page-not-found
 {
     background-image: url("../img/fullscreen-page-not-found.jpg");
+}
+
+
+/*  Monthly reports
+================================================== */
+.monthly-report-boxes
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+.monthly-report-boxes a
+{
+    margin: 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    width: 7em;
+    height: 7em;
+    border-radius: 1em;
+    background-color: #85C040;
+    color: #303030;
+    transition-property: all;
+    transition-duration: 0.25s;
+    transition-timing-function: ease;
+}
+
+.monthly-report-boxes a:hover
+{
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+    will-change: transform;
+    
+    background-color: #add370;
 }
 
 
@@ -741,7 +791,7 @@
 
     .landing-container h2
     {
-        font-size: 7rem;
+        font-size: 6rem;
     }
 
     .tree-counter
@@ -751,7 +801,7 @@
 
     .compensate-button.big
     {
-        font-size: 4rem;
+        font-size: 3.5rem;
     }
 
     .compensate-button.small
