@@ -120,7 +120,7 @@
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     z-index: 5;
-    height: 33.6rem;
+    height: 42em;
 }
 
 .nav-bar ul
@@ -145,8 +145,8 @@
     transition-duration: 0.20s;
     transition-timing-function: ease-in;
 
-    -webkit-transform: translateY(-33.6rem);
-    transform: translateY(-33.6rem);
+    -webkit-transform: translateY(-42rem);
+    transform: translateY(-42rem);
     will-change: transform;
 }
 
@@ -196,6 +196,7 @@
     left: 0;
     z-index: 2;
 }
+
 
 /*  Fullscreen background image
 ================================================== */
@@ -252,6 +253,7 @@
     font-size: 0.9em;
     background-color: rgb(220, 220, 220);
 }
+
 
 /*  Dropdown
 ================================================== */
@@ -327,6 +329,7 @@
     background-image: url("../img/banner-monthly-reports.jpeg");
 }
 
+
 /*  Landing page
 ================================================== */
 .landing-container
@@ -386,6 +389,7 @@
     font-family: Exo, sans-serif;
     font-weight: bold;
 }
+
 
 /*  Compensate button
 ================================================== */
@@ -641,6 +645,7 @@
     background-color: rgb(255, 150, 150);
 }
 
+
 /*  Thank you page
 ================================================== */
 .fullscreen-background.thank-you
@@ -691,11 +696,50 @@
     box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
 }
 
+
 /*  404 Page not found
 ================================================== */
 .fullscreen-background.page-not-found
 {
     background-image: url("../img/fullscreen-page-not-found.jpg");
+}
+
+
+/*  Monthly reports
+================================================== */
+.monthly-report-boxes
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+.monthly-report-boxes a
+{
+    margin: 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    width: 7em;
+    height: 7em;
+    border-radius: 1em;
+    background-color: #85C040;
+    color: #303030;
+    transition-property: all;
+    transition-duration: 0.25s;
+    transition-timing-function: ease;
+}
+
+.monthly-report-boxes a:hover
+{
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+    will-change: transform;
+    
+    background-color: #add370;
 }
 
 
