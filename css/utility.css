@@ -328,12 +328,15 @@
 ================================================== */
 .landing-container
 {
-    min-height: calc(100vh - 9.6rem);
+    min-height: 60rem;
+    height: calc(100vh - 9.6rem);
     width: 100%;
 }
 
 .fullscreen-background.landing
 {
+    min-height: 60rem;
+    height: calc(100vh - 9.6rem);
     background-image: url("../img/fullscreen-landing.jpg");
 }
 
@@ -741,7 +744,7 @@
 
     .landing-container h2
     {
-        font-size: 7rem;
+        font-size: 6rem;
     }
 
     .tree-counter
@@ -751,7 +754,7 @@
 
     .compensate-button.big
     {
-        font-size: 4rem;
+        font-size: 3.5rem;
     }
 
     .compensate-button.small
