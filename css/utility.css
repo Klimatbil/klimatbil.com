@@ -320,9 +320,12 @@
 .page-banner.about-us
 {
     background-image: url("../img/banner-about-us.jpg");
-    background-position: center;
 }
 
+.page-banner.monthly-reports
+{
+    background-image: url("../img/banner-monthly-reports.jpeg");
+}
 
 /*  Landing page
 ================================================== */
