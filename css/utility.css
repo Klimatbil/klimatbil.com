@@ -19,7 +19,6 @@
     width: 100%;
 }
 
-
 /*  Top bar
 ================================================== */
 .top-bar
@@ -772,6 +771,23 @@
 }
 
 
+/*  Demo reminder
+================================================== */
+.demo-reminder
+{
+    box-sizing: border-box;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
+    text-align: center;
+    background-color: #fdb3b3;
+    font-size: 17px;
+    padding: 0.5em;
+}
+
+
 /*  Media queries 
 ================================================== */
 @media only screen and (min-width: 900px)
@@ -849,3 +865,5 @@
         font-size: 1.5rem;
     }
 }
+
+
